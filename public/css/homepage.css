@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Deezer corporate typeface1';
+    src: local('Deezer corporate typeface Medium'), local('Deezer-corporate-typeface-Medium'),
+        url('DeezerProduct-Medium.woff2') format('woff2'),
+        url('DeezerProduct-Medium.woff') format('woff'),
+        url('DeezerProduct-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+@font-face{
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+    font-style: normal;
+}
+.header .container img{
+
+}
+.descricao {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-image: linear-gradient(to bottom, #362B26, #35323128); 
+    width: 100%;
+    padding-top: 5%;
+}
+.sobremim {
+    justify-content: center;
+    align-self: center;
+}
+.sobremim p{
+    font-size: larger;
+    font-family: 'Inter';
+    color: #FFFF;
+}
+
+.descricao .container p{
+    font-family: 'Inter';
+    color: #FFFF;
+    width: 40%;
+    margin-right: 10%;
+    font-size: 30px;
+    font-weight: 800;    
+}
+.descricao .container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: fit-content;
+  padding:0;
+}
+.descricao .container img{
+    width: 40%;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  width: 50%;
+  margin: 0; 
+}

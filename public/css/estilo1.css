@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'Deezer corporate typeface';
+    src: local('Deezer corporate typeface Extra bold'), local('Deezer-corporate-typeface-Extra-bold'),
+        url('../assets/fonts/DeezerProduct-Extrabold.woff2') format('woff2'),
+        url('../assets/fonts/DeezerProduct-Extrabold.woff') format('woff'),
+        url('../assets/fonts/DeezerProduct-Extrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, Verdana, sans-serif;
+  background-color: #161618;
+}
+
+.header {
+  position: fixed;
+    height: 80px;
+    background-image: linear-gradient(to bottom, #362B26, #35323128); 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+}
+.header a {
+  text-decoration: none;
+  color: #FFF9F9;
+  margin-top: 10px;
+  font-family: 'Inter';
+}
+
+.agora {
+  font-weight: 800;
+}
+
+.button{
+  cursor: pointer;
+  font-family: Tahoma, "Barlow", sans-serif;
+  border: 0;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background-color: #F28E6B;
+  width: 120px;
+  height: 30px;
+  align-self: center;
+  align-items: center;
+  padding: 5px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin: auto;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+.navbar {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: #FFF9F9;
+  gap: 40px;
+  margin-right: 2%;
+}
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.container img {
+    height: 90%;
+    margin: 2%;
+}
+.banner .container p {
+  font-family: 'Deezer corporate typeface';
+  font-size: 60px;
+}
+.banner {
+  margin-top: 5%;
+width: 100%;
+background-image: url('../assets/imgs/musico-tocando-guitarra.jpg');
+background-size: cover;
+
+}
+
+.banner .container {
+  padding-top: 20%;
+  padding-bottom: 20%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  height: 100%;
+  color:#FFF9F9;
+}
+
