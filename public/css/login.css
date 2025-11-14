@@ -19,7 +19,7 @@ body {
     justify-self: center;
     align-self: baseline;
     background-image: linear-gradient(to bottom, #000000, #362B26);
-    color: #FFF9F9;;
+    color: #FFF9F9;
     z-index: 1000;
     padding-bottom: 26%;
 }

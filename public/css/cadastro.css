@@ -1,0 +1,62 @@
+@font-face{
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, #000000, #362B26);
+    background-size: cover;
+    height: 100vh;
+    font-family: Tahoma, Verdana, sans-serif;
+    display: flex;
+}
+.corpo {
+    display: flex;
+    width: 100%;  
+    justify-content: center;
+    align-items: center;
+}
+.card-cadastro {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', Tahoma;
+    padding: 5%;
+    background-color:#161618;
+    border-radius: 20px;
+}
+.titulo {
+    display: flex;
+    padding-bottom: 2%;
+    color: #FFF9F9;
+}
+.entrada{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    width: 100%;
+    margin: 5%;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: #FFF9F9;
+}
+.button {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    padding: 2%;
+    margin-top: 5%;
+    margin-right: 25%;
+    border-radius: 25px;
+    background-color: #eb5109;
+}
