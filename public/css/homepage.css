@@ -33,6 +33,12 @@
     color: #FFFF;
 }
 
+.img {
+    margin: 1% 2%;
+}
+#logo {
+    width: 34%;
+}
 .descricao .container p{
     font-family: 'Inter';
     color: #FFFF;

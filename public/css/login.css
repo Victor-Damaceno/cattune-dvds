@@ -22,24 +22,30 @@ body {
     background-image: linear-gradient(to bottom, #000000, #362B26);
     color: #FFF9F9;
     z-index: 1000;
-    padding-bottom: 26%;
+    padding-bottom: 2%;
 }
 .card-login {
-    display: flex;
+
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    margin-top: 15%;
-    height: 100%;
+    margin-top: 10%;
     width: 100%;
 }
 .titulo {
-
+    display: flex;
+    align-self: flex-start;
+    margin-left: 6%;
 }
 .formulario {
-    width: 50%;
-    padding: 2%;
+    width: 70%;
+    margin: 4%;
+}
+.form {
+    width: 100%;
+}
+.form span{
+    margin-left: 5%;
 }
 .imagem {
     width: 100%;
@@ -49,8 +55,8 @@ body {
     width: 90%;
 }
 .entrada {
-    padding: 5%;
-    width: 120%;
+    padding: 3%;
+    width: 100%;
     margin: 5%;
     border-radius: 10px;
 }
@@ -63,15 +69,34 @@ body {
 }
 .button {
     display: flex;
-    width: 50%;
+    width: 30%;
     justify-content: center;
     align-self: flex-end;
-    padding: 4%;
+    padding: 3%;
     margin-top: 5%;
-    margin-left: 20%;
+    margin-left: 76%;
     border-radius: 25px;
     background-color: #eb5109;
+    text-decoration: none;
+    color: #FFF9F9;
+}
+.button:hover {
+    background-color: #F2BC6B;
+    cursor: pointer;
 }
 .buttonSair {
     display: flex;
+    justify-content: center;
+    width: 20%;
+    margin-top: 25%;
+    margin-left: 5%;
+    border-radius: 25px;
+    background-color: #eb5109;
+    padding: 2%;
+    text-decoration: none;
+    color: #FFF9F9;
+}
+.buttonSair:hover{
+    background-color: #F2BC6B;
+    cursor: pointer;
 }
