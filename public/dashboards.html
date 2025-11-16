@@ -13,17 +13,21 @@
 <body onload="obterDados()">
     <div class="header">
         <div class="container">
+            <a href="#">
             <img src="./assets/icon/VictorDVD_logo.png" id="logo">
-
+            </a>
             <div class="navbar">
-
+                <li class="button">
+                    <a href="adicionarMusica.html">Adicionar Música</a>
+                </li>
             </div>
         </div>
     </div>
     <div class="corpo">
         <div class="menu">
             <h1>Repertórios</h1>
-            <h2>a</h2>
+
+
         </div>
         <div class="dashboard">
             <div class="TopDashboard">
@@ -55,58 +59,59 @@
 
     </div>
 </body>
+
 </html>
 <script>
-function obterDados(){
-    // Aqui seria a função que obteria os dados do banco de dados
-  // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
- 
-  // fetch('/obterDados')
-  // .then(function(response){
-  //   return response.json();
-  // })
-  // .then(function(data){
-  //   plotarGraficoLinha(data);
-  //   plotarGraficoBarra(data);
-  // })
-  // .catch(function(err){
-  //   console.log(err);
-  // })
+    function obterDados() {
+        // Aqui seria a função que obteria os dados do banco de dados
+        // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
 
-  var dados = [{
-    mes:'Agosto',
-    estilo:'Rock',
-    posts: 10
-  },
-  {
-    mes:'Setembro',
-    estilo:'Pop',
-    posts: 5
-  },
-  {
-    mes:'Outubro',
-    estilo:'Sertanejo',
-    posts: 15
-  },
-  {
-    mes:'Novembro',
-    estilo:'Rap',
-    posts: 20
-  },
-  {
-    mes:'Dezembro',
-    estilo:'',
-    posts: 25
-  }
-]
-plotarGraficoPizza(dados);
-plotarGraficoBarra(dados);
+        // fetch('/obterDados')
+        // .then(function(response){
+        //   return response.json();
+        // })
+        // .then(function(data){
+        //   plotarGraficoLinha(data);
+        //   plotarGraficoBarra(data);
+        // })
+        // .catch(function(err){
+        //   console.log(err);
+        // })
 
-}
+        var dados = [{
+            mes: 'Agosto',
+            estilo: 'Rock',
+            posts: 10
+        },
+        {
+            mes: 'Setembro',
+            estilo: 'Pop',
+            posts: 5
+        },
+        {
+            mes: 'Outubro',
+            estilo: 'Sertanejo',
+            posts: 15
+        },
+        {
+            mes: 'Novembro',
+            estilo: 'Rap',
+            posts: 20
+        },
+        {
+            mes: 'Dezembro',
+            estilo: '',
+            posts: 25
+        }
+        ]
+        plotarGraficoPizza(dados);
+        plotarGraficoBarra(dados);
 
-function plotarGraficoPizza(dados){
-    var votos = [];
-    var jogadores = [];
-}
+    }
+
+    function plotarGraficoPizza(dados) {
+        var votos = [];
+        var jogadores = [];
+    }
 
 </script>

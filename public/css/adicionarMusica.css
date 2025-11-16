@@ -1,0 +1,107 @@
+@font-face{
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, #000000, #362B26);
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Inter', Tahoma, Verdana, sans-serif;
+    display: flex;
+}
+.header {
+    position: fixed;
+    height: 80px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.container {
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+#logo:hover {
+    cursor: pointer;
+
+}
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.img {
+    margin: 2%;
+}
+#logo {
+    width: 34%;
+}
+.corpo {
+    display: flex;
+    width: 100%;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    justify-content: center;
+}
+.card-cadastro {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', Tahoma;
+    padding: 5% 1%;
+    background-color: #191715;
+    border-radius: 15px;
+}
+.card-cadastro h1 {
+    display: flex;
+    font-family: 'Inter', Tahoma;
+    font-weight: 400;
+    color: #FFF9F9;
+    justify-content: flex-start;
+}
+.titulo {
+    display: flex;
+    color: #FFF9F9;
+    justify-content: flex-start;
+    margin-right: 10%;
+}
+.entrada{
+    width: 100%;
+    padding: 3%;
+    margin: 3%;
+    border-radius: 10px
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: #FFF9F9;
+}
+.form {
+    width: 55%;
+    padding: 1%;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    padding: 2% 2%;
+    margin-top: 5%;
+    margin-left: 45%;
+    border-radius: 15px;
+    background-color: #eb5109;
+}
