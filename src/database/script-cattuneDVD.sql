@@ -7,7 +7,9 @@ CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(45),
 	email VARCHAR(45),
-	senha VARCHAR(45)
+	senha VARCHAR(45),
+	estilo_id INT,
+	FOREIGN KEY (estilo_id) REFERENCES estilo(id)
 );
 
 CREATE TABLE musica (
