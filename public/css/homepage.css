@@ -6,50 +6,56 @@
         url('DeezerProduct-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
-  }
-@font-face{
+}
+
+@font-face {
     font-family: 'Inter';
     src: url('../assets/fonts/Inter-VariableFont_opsz\,wght.ttf') format('truetype');
     font-style: normal;
 }
-.header .container img{
 
-}
+.header .container img {}
+
 .descricao {
     display: flex;
     justify-content: center;
     align-self: center;
-    background-image: linear-gradient(to bottom, #35323128, #362B26); 
+    background-image: linear-gradient(to bottom, #35323128, #362B26);
     width: 100%;
     padding-top: 5%;
-    
+
 }
+
 .sobremim {
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to bottom, #362B26, #E07507); 
+    background-image: linear-gradient(to bottom, #362B26, #E07507);
     align-self: center;
     width: 100%;
     padding-top: 5%;
 }
+
 .sobremim .container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: fit-content;
-  padding:0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: fit-content;
+    padding: 0;
 }
+
 .sobremim .container img {
-        width: 40%;
+    width: 40%;
 }
+
 .sobremim .container h1 {
-    font-family: 'Inter',Tahoma;
+    font-family: 'Inter', Tahoma;
     font-weight: 800;
-    color: #FFFF;  
+    color: #FFFF;
 }
+
 .sobremim .container p {
     width: 30%;
-    font-family: 'Inter',Tahoma;
+    font-family: 'Inter', Tahoma;
     font-size: 20px;
     color: #FFFF;
 }
@@ -57,37 +63,73 @@
 .img {
     margin: 1% 2%;
 }
+
 #logo {
     width: 34%;
 }
-.descricao .container h1{
+
+.descricao .container h1 {
     font-family: 'Inter';
     color: #FFFF;
-
     font-size: 30px;
-    font-weight: 800;    
+    font-weight: 800;
 }
+
 .descricao .container p {
     font-family: 'Inter', Tahoma;
     color: #FFFF;
 }
-.descricao .container{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: fit-content;
-  padding: 0;
+
+.descricao .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: fit-content;
+    padding: 0;
 }
+
 .descricao .texto {
     margin-left: 5%;
 }
-.descricao .container img{
+
+.descricao .container img {
     width: 40%;
 }
+
 .box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   
-  width: 50%;
-  margin: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0;
+}
+
+.social {
+    background-image: linear-gradient(to bottom, #E07507, #F2BC6B );;
+    display: flex;
+}
+
+.social .container {
+    justify-content: center;
+}
+
+.box img {
+    width: 170px;
+}
+
+.social .container .boxes {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px 0;
+}
+
+.social p {
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
