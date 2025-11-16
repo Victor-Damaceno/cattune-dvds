@@ -19,17 +19,38 @@
     display: flex;
     justify-content: center;
     align-self: center;
-    background-image: linear-gradient(to bottom, #362B26, #35323128); 
+    background-image: linear-gradient(to bottom, #35323128, #362B26); 
+    width: 100%;
+    padding-top: 5%;
+    
+}
+.sobremim {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, #362B26, #E07507); 
+    align-self: center;
     width: 100%;
     padding-top: 5%;
 }
-.sobremim {
-    justify-content: center;
-    align-self: center;
+.sobremim .container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: fit-content;
+  padding:0;
 }
-.sobremim p{
-    font-size: larger;
-    font-family: 'Inter';
+.sobremim .container img {
+        width: 40%;
+}
+.sobremim .container h1 {
+    font-family: 'Inter',Tahoma;
+    font-weight: 800;
+    color: #FFFF;  
+}
+.sobremim .container p {
+    width: 30%;
+    font-family: 'Inter',Tahoma;
+    font-size: 20px;
     color: #FFFF;
 }
 
@@ -39,20 +60,26 @@
 #logo {
     width: 34%;
 }
-.descricao .container p{
+.descricao .container h1{
     font-family: 'Inter';
     color: #FFFF;
-    width: 40%;
-    margin-right: 10%;
+
     font-size: 30px;
     font-weight: 800;    
+}
+.descricao .container p {
+    font-family: 'Inter', Tahoma;
+    color: #FFFF;
 }
 .descricao .container{
   display: flex;
   justify-content: space-between;
   width: 100%;
   max-width: fit-content;
-  padding:0;
+  padding: 0;
+}
+.descricao .texto {
+    margin-left: 5%;
 }
 .descricao .container img{
     width: 40%;
