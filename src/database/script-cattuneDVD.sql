@@ -17,7 +17,7 @@ descricao VARCHAR(120)
 );
 
 CREATE TABLE estilo (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nome VARCHAR (45)
 );
 
@@ -48,10 +48,19 @@ CREATE TABLE aviso (
 );
 
 
-
+INSERT INTO estilo (nome) VALUES
+('Pop'),
+('Rock'),
+('Hip-hop'),
+('Rap'),
+('Trap'),
+('Kpop'),
+('Samba'),
+('Funk'),
+('MPB'),
+('Pagode');
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
 
-SELECT * FROM usuario;
 
 
