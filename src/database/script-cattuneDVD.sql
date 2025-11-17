@@ -40,14 +40,6 @@ CONSTRAINT fkMusicaEstilo FOREIGN KEY (musica_id) REFERENCES musica(id),
 CONSTRAINT fkEstilo FOREIGN KEY (estilo_id) REFERENCES estilo(id)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
-
 
 INSERT INTO estilo (nome) VALUES
 ('Pop'),

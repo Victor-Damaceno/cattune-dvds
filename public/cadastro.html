@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cattunes DVD's | Cadastro</title>
   <link rel="stylesheet" href="./css/cadastro.css">
-
+  <script src="./js/sessao.js"></script>
   <link rel="icon" href="./assets/icon/VictorDVD_icon_64.ico">
 </head>
 
-<body>
+<body onload="listarEstilos()">
   <div class="corpo">
     <div class="header">
       <div class="container">
-        <a href="homepage.html" class="img">
+        <a href="index.html" class="img">
           <img src="./assets/icon/VictorDVD_logo.png" id="logo">
         </a>
       </div>
@@ -38,15 +38,16 @@
 
           <div class="form">
             <span>Senha</span>
-            <input class="entrada" id="senha_input"  placeholder="Senha">
+            <input class="entrada" id="senha_input" type="password" placeholder="Senha">
           </div>
           <div class="form">
             <span>Confirmar senha</span>
-            <input class="entrada" id="confirmacao_senha_input"  placeholder="Confirme sua senha">
+            <input class="entrada" id="confirmacao_senha_input" type="password" placeholder="Confirme sua senha">
           </div>
-           <div class="form">
+          <div class="form">
             <span>Estilo de música favorito: </span>
             <select id="estilo_input">
+              <option value="#">Selecione um estilo</option>
               <option value="Pop">Pop</option>
               <option value="Rock">Rock</option>
               <option value="Hip-hop">Hip-hop</option>
@@ -60,7 +61,7 @@
             </select>
           </div>
 
-          <a class="button" onclick="">Cadastrar-se</a>
+          <a class="button" onclick="cadastrar()">Cadastrar-se</a>
 
         </div>
       </div>
@@ -71,6 +72,9 @@
 
 </html>
 <script>
+let listarEstilosCadastrados = [];
+
+
   function cadastrar() {
     // aguardar();
 
@@ -87,29 +91,17 @@
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == ""
+      confirmacaoSenhaVar == "" ||
+      estiloVar == "#"
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      alert('Há campos do cadastro obrigatórios em branco!')
 
       finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
+    if (senha_input.value != confirmacao_senha_input.value) {
+      alert('Senha incorreta em Confirmar a senha!')
     }
 
     // Enviando o valor da nova input
@@ -129,28 +121,34 @@
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
-          cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
 
     return false;
   }
 
+  function listarEstilos() {
+
+      fetch("/estilos/listar", {
+      method: "GET",
+    })
+      .then(function (resultado) {
+        resposta.json().then((resultado) => {
+          estilos.forEach((estilo) => {
+            listarEstilosCadastrados.push(estilo);
+
+            estilo_input.innerHTML += `<option value="${estilo.id}">`
+
+            console.log("listarEstilosCadastrados")
+            console.log(listarEstilosCadastrados)
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
 </script>
