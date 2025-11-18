@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cattunes DVD's | Cadastro</title>
+  <title>Cattunes DVD's | Adicionar Música</title>
   <link rel="stylesheet" href="./css/adicionarMusica.css">
 
   <link rel="icon" href="./assets/icon/VictorDVD_icon_64.ico">
@@ -35,9 +35,14 @@
             <input class="entrada" placeholder="Confirme sua senha">
           </div>
            <div class="form">
-            <span>Arquivo da música:</span>
+            <span>Link da música:</span>
             <input class="entrada" placeholder="Estilo favorito">
           </div>
+           <div class="form">
+            <span>Foto de capa da música:</span>
+            <input name="foto" id="foto" type="file"/>
+          </div>
+
 
           <a class="button">Adicionar música</a>
 
@@ -58,7 +63,6 @@
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
     // Verificando se há algum campo em branco
     if (
@@ -70,8 +74,6 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);

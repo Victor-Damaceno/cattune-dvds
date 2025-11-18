@@ -84,6 +84,12 @@ body {
     margin: 3%;
     border-radius: 10px
 }
+.validacao {
+    font-size:small;
+    font-family: 'Inter',Tahoma;
+    margin-left: 5%;
+    
+}
 .formulario{
     display: flex;
     flex-direction: column;
@@ -104,6 +110,7 @@ body {
     margin-left: 45%;
     border-radius: 15px;
     background-color: #eb5109;
+    margin-bottom: 5%;
 }
 .button:hover{
     cursor: pointer;

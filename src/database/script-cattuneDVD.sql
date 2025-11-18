@@ -6,7 +6,9 @@ USE cattuneDVD;
 CREATE TABLE musica (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50),
-descricao VARCHAR(120)
+descricao VARCHAR(120),
+imagem VARCHAR (200),
+arquivo VARCHAR (200)
 );
 
 CREATE TABLE estilo (

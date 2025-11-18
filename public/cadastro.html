@@ -28,21 +28,25 @@
 
           <div class="form">
             <span>Nome</span>
-            <input class="entrada" id="nome_input" placeholder="Seu nome aqui">
+            <input class="entrada" id="nome_input" onkeyup="validarCampos()" placeholder="Seu nome aqui">
+            <div class="validacao" id="campo1"> </div>
           </div>
 
           <div class="form">
             <span>Email</span>
-            <input class="entrada" id="email_input" placeholder="E-mail">
+            <input class="entrada"  id="email_input" onkeyup="validarCampos()" placeholder="E-mail">
+            <div class="validacao" id="campo2"></div>
           </div>
 
           <div class="form">
             <span>Senha</span>
-            <input class="entrada" id="senha_input" type="password" placeholder="Senha">
+            <input class="entrada" id="senha_input" type="password" onkeyup="validarCampos()" placeholder="Senha">
+            <div class="validacao" id="campo3"></div>
           </div>
           <div class="form">
             <span>Confirmar senha</span>
-            <input class="entrada" id="confirmacao_senha_input" type="password" placeholder="Confirme sua senha">
+            <input class="entrada" id="confirmacao_senha_input" type="password" onkeyup='validarCampos()' placeholder="Confirme sua senha">
+            <div class="validacao" id="campo4"></div>
           </div>
           <div class="form">
             <span>Estilo de música favorito: </span>
@@ -73,9 +77,51 @@
 </html>
 <script>
 let listarEstilosCadastrados = [];
+let erro = false;
+  function validarCampos(){
+    if(
+      nome_input.value.includes('1') ||
+      nome_input.value.includes('2') ||
+      nome_input.value.includes('3') ||
+      nome_input.value.includes('4') ||
+      nome_input.value.includes('5') ||
+      nome_input.value.includes('6') ||
+      nome_input.value.includes('7') ||
+      nome_input.value.includes('8') ||
+      nome_input.value.includes('9') ||
+      nome_input.value.includes('0')
+    ){
+      campo1.innerHTML = 'Insira somente caractéres de "aA"-"zZ"';
+      erro = true;
+    }else{
+      campo1.innerHTML ='';
+      erro = false;
+    }
 
+    if(email_input.value != ''){
+      if(
+        email_input.value.includes('@') &&
+        email_input.value.includes('.com')
+      ){
+        campo2.innerHTML = '';
+      }else{
+        campo2.innerHTML = 'Email inserido inválido';
+      }
+    }
+
+    if(senha_input.value == '' && confirmacao_senha_input != ''){
+      if(senha_input.value != confirmacao_senha_input.value){
+        campo3.innerHTML = 'As senhas inseridas nos campos são inválidas'
+      }else{
+        campo3.innerHTML = '';
+      }
+
+    }
+    
+    }
 
   function cadastrar() {
+    validarCampos()
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
@@ -115,7 +161,8 @@ let listarEstilosCadastrados = [];
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
+        estiloServer: estiloVar
       }),
     })
       .then(function (resposta) {

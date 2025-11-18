@@ -6,4 +6,6 @@ function listar(){
     return database.executar(instrucaoSql);
 }
 
-module.exports = {listar};
+module.exports = {
+    listar
+};
