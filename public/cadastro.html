@@ -10,7 +10,8 @@
   <link rel="icon" href="./assets/icon/VictorDVD_icon_64.ico">
 </head>
 
-<body onload="listarEstilos()">
+<!-- onload="listarEstilos()" -->
+<body>
   <div class="corpo">
     <div class="header">
       <div class="container">
@@ -48,20 +49,20 @@
             <input class="entrada" id="confirmacao_senha_input" type="password" onkeyup='validarCampos()' placeholder="Confirme sua senha">
             <div class="validacao" id="campo4"></div>
           </div>
-          <div class="form">
+          <div class="form" id="estilo">
             <span>Estilo de música favorito: </span>
             <select id="estilo_input">
               <option value="#">Selecione um estilo</option>
-              <option value="Pop">Pop</option>
-              <option value="Rock">Rock</option>
-              <option value="Hip-hop">Hip-hop</option>
-              <option value="Rap">Rap</option>
-              <option value="Trap">Trap</option>
-              <option value="Kpop">KPOP</option>
-              <option value="Samba">Samba</option>
-              <option value="Funk">Funk</option>
-              <option value="MPB">MPB</option>
-              <option value="Pagode">Pagode</option>
+              <option value="1">Pop</option>
+              <option value="2">Rock</option>
+              <option value="3">Hip-hop</option>
+              <option value="4">Rap</option>
+              <option value="5">Trap</option>
+              <option value="6">KPOP</option>
+              <option value="7">Samba</option>
+              <option value="8">Funk</option>
+              <option value="9">MPB</option>
+              <option value="10">Pagode</option>
             </select>
           </div>
 
@@ -168,7 +169,13 @@ let erro = false;
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
+        if (resposta.ok) {
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "1000");
+        }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
@@ -177,25 +184,31 @@ let erro = false;
     return false;
   }
 
-  function listarEstilos() {
+  // function listarEstilos() {
 
-      fetch("/estilos/listar", {
-      method: "GET",
-    })
-      .then(function (resultado) {
-        resposta.json().then((resultado) => {
-          estilos.forEach((estilo) => {
-            listarEstilosCadastrados.push(estilo);
+  //     fetch("/estilos/listar", {
+  //     method: "GET",
+  //   })
+  //     .then(function (resultado) {
+  //       resposta.json().then((resultado) => {
+  //         estilos.forEach((estilo) => {
+  //           listarEstilosCadastrados.push(estilo);
 
-            estilo_input.innerHTML += `<option value="${estilo.id}">`
+  //           estilo.innerHTML += `
+  //           <select id="estilo_input">
+  //              <option value="${estilo.id}">
 
-            console.log("listarEstilosCadastrados")
-            console.log(listarEstilosCadastrados)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
+  //           </select>`   
+            
+            
+           
+  //           console.log("listarEstilosCadastrados")
+  //           console.log(listarEstilosCadastrados)
+  //         });
+  //       });
+  //     })
+  //     .catch(function (resposta) {
+  //       console.log(`#ERRO: ${resposta}`);
+  //     });
+  // }
 </script>

@@ -7,6 +7,7 @@
     <title>Cattunes DVD's | Login </title>
 
     <link rel="icon" href="./assets/icon/VictorDVD_icon_64.ico">
+    <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="./css/login.css">
 </head>
 
@@ -24,13 +25,13 @@
                     <div class="formulario">
                         <div class="form">
                             <span>Email</span>
-                            <input placeholder="Email" class="entrada">
+                            <input placeholder="Email" id="email_input" class="entrada">
                         </div>
                         <div class="form">
                             <span>Senha</span>
-                            <input placeholder="Senha" class="entrada">
+                            <input placeholder="Senha" id="senha_input" type="password" class="entrada">
                         </div>
-                        <a href="dashboards.html" class="button" onclick="">Continuar</a>
+                        <a class="button" onclick="entrar()">Continuar</a>
                     </div>
 
 
@@ -44,9 +45,10 @@
 
     </div>
 </body>
+
 </html>
 <script>
-function entrar() {
+    function entrar() {
         aguardar();
 
         var emailVar = email_input.value;
@@ -54,7 +56,7 @@ function entrar() {
 
         if (emailVar == "" || senhaVar == "") {
             alert('Preencha todos os campos de login!')
-            return 
+            return
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -83,6 +85,9 @@ function entrar() {
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.ESTILO = JSON.stringify(json.estilo)
 
+                    setTimeout(() => {
+                        window.location = "dashboards.html";
+                    }, "2000");
                 });
 
             } else {
