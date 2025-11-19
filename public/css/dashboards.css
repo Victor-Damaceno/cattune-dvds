@@ -27,7 +27,6 @@ body {
   display: flex;
   width: 100%;
   flex-direction: row;
-  gap: 20px;
 }
 
 .menu {
@@ -59,9 +58,9 @@ body {
 
 .TopDashboard {
   display: flex;
+  margin: 0% 1%;
   width: 100%;
   justify-content: center;
-  gap: 40px;
   border-radius: 20px;
 }
 
@@ -74,6 +73,7 @@ body {
   height: 40%;
   background-image: linear-gradient(to bottom, #362B26, #35323128);
   padding: 5%;
+  margin: 0% 1%;
   /*margin-top:10%;*/
   border-radius: 15px;
 
@@ -91,7 +91,6 @@ body {
   color: #FFFF;
   font-family: 'Inter', Tahoma;
   font-size: 30px;
-  margin-top: 5%;
   padding: 0;
 }
 
@@ -122,17 +121,14 @@ body {
   border: 0;
   border-radius: 15px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 100%;
   color: #fff;
   background-color: #F28E6B;
-  width: 190px;
-  height: 30px;
+  width: 50%;
   align-self: center;
   align-items: center;
-  padding: 5px;
-  padding-top: 4%;
-  padding-left: 10%;
-  padding-right: 0;
+  padding: 4%;
+  padding-bottom: 5%;
   margin: 0;
 }
 .button a {
@@ -141,14 +137,13 @@ body {
 }
 
 .navbar {
-  width: 300px;
+  width: 20%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
   color: #FFF9F9;
-  gap: 40px;
-  margin-right: 2%;
+  
     font-style: none;
   text-decoration: none;
 }

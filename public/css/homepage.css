@@ -162,6 +162,9 @@
     background-color: #F2BC6B;
     height: 25vh;
 }
+.footer .container {
+    justify-content: space-between;
+}
 .footer h1{
     font-family: 'Inter';
     color: #FFFF;

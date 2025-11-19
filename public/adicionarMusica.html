@@ -27,20 +27,32 @@
           </div>
 
           <div class="form">
-            <span>Nome</span>
-            <input class="entrada" placeholder="Seu nome aqui">
+            <span>Titulo</span>
+            <input type="text" class="entrada"  id="titulo_input" placeholder="Adicione o título da música aqui">
           </div>
           <div class="form">
             <span>Estilo da música</span>
-            <input class="entrada" placeholder="Confirme sua senha">
+            <select id="estilo_input">
+              <option value="#">Selecione um estilo</option>
+              <option value="1">Pop</option>
+              <option value="2">Rock</option>
+              <option value="3">Hip-hop</option>
+              <option value="4">Rap</option>
+              <option value="5">Trap</option>
+              <option value="6">KPOP</option>
+              <option value="7">Samba</option>
+              <option value="8">Funk</option>
+              <option value="9">MPB</option>
+              <option value="10">Pagode</option>
+            </select>
           </div>
            <div class="form">
             <span>Link da música:</span>
-            <input class="entrada" placeholder="Estilo favorito">
+            <input class="entrada" id="link_input" placeholder="Insira a URL aqui">
           </div>
            <div class="form">
             <span>Foto de capa da música:</span>
-            <input name="foto" id="foto" type="file"/>
+            <input name="foto" id="foto_input" type="file"/>
           </div>
 
 
@@ -61,36 +73,35 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+    var estiloVar = estilo_input.value;
+    var linkVar = linkVar.value;
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == ""
+      estiloVar == "#" ||
+      linkVar == "" 
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        alert('Há campos  obrigatórios em branco!')
+
+      finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
 
     // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
+    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
+    //     console.log("Código de ativação válido.");
+    //     break;
+    //   } else {
+    //     cardErro.style.display = "block";
+    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+    //     finalizarAguardar();
+    //   }
+    // }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -102,32 +113,26 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar
+        estiloServer: estiloVar,
+        linkServer: linkVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          alert('Cadastro da música realizado com sucesso!');
 
           setTimeout(() => {
-            window.location = "login.html";
+            window.location = "dashboards.html";
           }, "2000");
 
-          limparFormulario();
-          finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
 
     return false;
