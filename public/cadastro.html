@@ -99,16 +99,31 @@ let erro = false;
       erro = false;
     }
 
-    if(email_input.value != ''){
-      if(
-        email_input.value.includes('@') &&
-        email_input.value.includes('.com')
-      ){
-        campo2.innerHTML = '';
-      }else{
-        campo2.innerHTML = 'Email inserido inválido';
+
+
+    // for(index = 0; index < email_input.value.length; index++){
+    //   if(email_input.value[index])
+    // }
+
+
+    //     if(email_input.value == ''){
+    //       campo2.innerHTML = '';
+    //     }else if(email_input.value.indexOf('@') == -1 || email_input.value.indexOf('.com') == -1){
+    //   campo2.innerHTML = 'Email inserido inválido, inclua "@seuendereçoemail.com"';
+    // } else{
+    //   campo2.innerHTML = '';
+    // }
+
+
+      for(index = 0; index < email_input.value.length; index++){
+        
+        if(email_input.value.includes('@') == false){
+          campo2.innerHTML ='Email inserido inválido';
+        }
+        else{
+          campo2.innerHTML ='';
+        }
       }
-    }
 
     if(senha_input.value == '' && confirmacao_senha_input != ''){
       if(senha_input.value != confirmacao_senha_input.value){
@@ -140,6 +155,7 @@ let erro = false;
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
       estiloVar == "#"
+
     ) {
       alert('Há campos do cadastro obrigatórios em branco!')
 
@@ -150,6 +166,7 @@ let erro = false;
     if (senha_input.value != confirmacao_senha_input.value) {
       alert('Senha incorreta em Confirmar a senha!')
     }
+
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {

@@ -16,6 +16,12 @@ body {
 .header img {
   height: 70px;
 }
+.header .container h1{
+    color: #FFFF;
+  font-family: 'Inter', Tahoma;
+  margin: 0;
+  padding: 0;
+}
 
 .container {
   width: 100%;
@@ -117,7 +123,7 @@ body {
 
 .button {
   cursor: pointer;
-  font-family: Tahoma, "Barlow", sans-serif;
+  font-family: 'Inter', Tahoma, "Barlow", sans-serif;
   border: 0;
   border-radius: 15px;
   font-weight: 600;

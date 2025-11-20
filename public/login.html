@@ -61,9 +61,9 @@
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
-
         fetch("/usuarios/autenticar", {
             method: "POST",
+
             headers: {
                 "Content-Type": "application/json"
             },
@@ -80,16 +80,18 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
+
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.ESTILO = JSON.stringify(json.estilo)
+                    sessionStorage.ESTILO = json.estilo_id;
                     
                     console.log('AQUI1');
+
                     setTimeout(() => {
                         console.log('AQUI2');
-                        window.location = "dashboards.html";
-                    }, "2000");
+                        window.location = "dashboard.html";
+                    }, "1000");
                 });
 
             } else {
@@ -98,6 +100,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
+                    alert(texto);
                 });
             }
 

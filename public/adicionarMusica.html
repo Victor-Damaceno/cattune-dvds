@@ -14,7 +14,7 @@
   <div class="corpo">
     <div class="header">
       <div class="container">
-        <a href="index.html" class="img">
+        <a href="dashboard.html" class="img">
           <img src="./assets/icon/VictorDVD_logo.png" id="logo">
         </a>
       </div>
@@ -28,7 +28,7 @@
 
           <div class="form">
             <span>Titulo</span>
-            <input type="text" class="entrada"  id="titulo_input" placeholder="Adicione o título da música aqui">
+            <input type="text" class="entrada"  id="nome_input" placeholder="Adicione o título da música aqui">
           </div>
           <div class="form">
             <span>Estilo da música</span>
@@ -51,12 +51,16 @@
             <input class="entrada" id="link_input" placeholder="Insira a URL aqui">
           </div>
            <div class="form">
+            <span>Descrição:</span>
+            <textarea class="descricao" name="descricao" id="descricao_input" maxlength="250" rows="5" placeholder="Insira a descrição da sua música aqui"></textarea>
+          </div>          
+           <!-- <div class="form">
             <span>Foto de capa da música:</span>
             <input name="foto" id="foto_input" type="file"/>
-          </div>
+          </div> -->
 
 
-          <a class="button">Adicionar música</a>
+          <a class="button" onclick="cadastrar()">Adicionar música</a>
 
         </div>
       </div>
@@ -73,38 +77,24 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
+    var descricaoVar = descricao_input.value;
     var estiloVar = estilo_input.value;
-    var linkVar = linkVar.value;
+    var linkVar = link_input.value;
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
+      descricaoVar == "" ||
       estiloVar == "#" ||
       linkVar == "" 
     ) {
-        alert('Há campos  obrigatórios em branco!')
+        alert('Há campos obrigatórios em branco!');
 
-      finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
-
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("/musicas/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,22 +103,24 @@
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
+        descricaoServer: descricaoVar,
         estiloServer: estiloVar,
         linkServer: linkVar
       }),
     })
       .then(function (resposta) {
         console.log("resposta: ", resposta);
-
+        
         if (resposta.ok) {
           alert('Cadastro da música realizado com sucesso!');
 
           setTimeout(() => {
-            window.location = "dashboards.html";
+            window.location = "dashboard.html";
           }, "2000");
 
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
+          alert("Houve um erro ao tentar realizar o cadastro!");
         }
       })
       .catch(function (resposta) {

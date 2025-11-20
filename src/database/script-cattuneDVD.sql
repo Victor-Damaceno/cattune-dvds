@@ -7,7 +7,7 @@ CREATE TABLE musica (
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50),
 descricao VARCHAR(120),
-imagem VARCHAR (200),
+estilo VARCHAR (45),
 linkMusica VARCHAR (200)
 );
 
@@ -32,14 +32,6 @@ usuario_id INT,
 CONSTRAINT pkRepertorio PRIMARY KEY (musica_id,usuario_id),
 CONSTRAINT fkMusica FOREIGN KEY (musica_id) REFERENCES musica(id),
 CONSTRAINT fkUsuario FOREIGN KEY (usuario_id) REFERENCES usuario(id)
-);
-
-CREATE TABLE estiloMusica (
-musica_id INT,
-estilo_id INT,
-CONSTRAINT pkEstilo PRIMARY KEY (musica_id,estilo_id),
-CONSTRAINT fkMusicaEstilo FOREIGN KEY (musica_id) REFERENCES musica(id),
-CONSTRAINT fkEstilo FOREIGN KEY (estilo_id) REFERENCES estilo(id)
 );
 
 
