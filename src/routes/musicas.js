@@ -8,7 +8,10 @@ router.post("/cadastrar", function (req, res) {
     musicaController.cadastrar(req, res);
 })
 
-router.post("/listar", function (req, res) {
+router.get("/listar", function (req, res) {
     musicaController.listar(req, res);
 });
+
+// router.get("/listarRepertorio",)
+//     musicaController.listarRepertorio(req, res);
 module.exports = router;

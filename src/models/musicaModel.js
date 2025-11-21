@@ -1,3 +1,4 @@
+const { listarRepertorio } = require("../controllers/musicaController");
 var database = require("../database/config")
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
@@ -18,7 +19,12 @@ function listar(){
 
     return database.executar(instrucaoSql);
 }
+
+// function listarRepertorio(){
+//     var instrucaoSql = `SELECT COUNT(id) AS quantidade FROM musica`
+// }
 module.exports = {
     cadastrar,
-    listar
+    listar,
+    // listarRepertorio
 };

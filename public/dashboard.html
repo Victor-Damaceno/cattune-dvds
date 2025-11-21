@@ -111,9 +111,7 @@
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta);
+                    plotarGraficoLinha(resposta)
 
                 });
             } else {
@@ -126,7 +124,7 @@
     }
 
 
-  function plotarGraficoLinha(dados){
+  function plotarGraficoLinha(resultado){
   
   // Separando os rótulos (labels) e os dados dos votos
   var estilos = [];
@@ -134,8 +132,18 @@
 
   // Preenchendo os arrays com os dados
         for(index = 0; index < resultado.length; index++){
+            if(resultado[index].estilo == '2'){
+                resultado[index].estilo = 'Rock';
+            }
+            if(resultado[index].estilo == '1'){
+                resultado[index].estilo = 'Pop'
+            }
+            if(resultado[index].estilo == '4'){
+                resultado[index].estilo = 'Rap'
+            }            
             estilos.push(resultado[index].estilo);
             quantidades.push(resultado[index].quantidade);
+            
         }
 
 
@@ -148,8 +156,8 @@
       data: { // Dados para o gráfico
           labels: estilos, // Rótulos no eixo X
           datasets: [{ 
-              label: 'Músicas', // Nome do conjunto de dados
-              data: quantidades, // Dados dos votos
+              label: estilos, // Nome do conjunto de dados
+              data: quantidades, // Dados das quantidades
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)', // Cor de fundo das linhas
               ],

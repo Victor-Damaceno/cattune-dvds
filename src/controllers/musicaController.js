@@ -46,10 +46,15 @@ var musicaModel = require("../models/musicaModel");
     res.status(200).json(resultado);
     })
 }
-module.exports = {listar};
 
+// function listarRepertorio(req,res){
+//     musicaModel.listarRepertorio().then((resultado) => {
+//         res.status(200).json(resultado);
+//     })
+// }
 
 module.exports = {
     cadastrar,
-    listar
+    listar,
+    // listarRepertorio
 }
