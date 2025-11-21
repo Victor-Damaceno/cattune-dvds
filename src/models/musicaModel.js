@@ -14,7 +14,7 @@ function cadastrar(nome, descricao, estilo, link) {
 }
 
 function listar(){
-    var instrucaoSql = `SELECT * FROM estilo`;
+    var instrucaoSql = `SELECT estilo, COUNT(estilo) AS quantidade FROM musica GROUP BY estilo`;
 
     return database.executar(instrucaoSql);
 }

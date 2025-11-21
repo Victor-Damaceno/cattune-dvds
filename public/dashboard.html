@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="obterDados()">
+<body onload="obterDadosGrafico()">
     <div class="header">
         <div class="container">
             <a href="#">
@@ -103,76 +103,53 @@
     }                
 
     e_usuario.innerHTML = estiloUser;
-    function obterDados() {
-        // Aqui seria a função que obteria os dados do banco de dados
-        // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
+       function obterDadosGrafico() {
 
-        // fetch('/obterDados')
-        // .then(function(response){
-        //   return response.json();
-        // })
-        // .then(function(data){
-        //   plotarGraficoLinha(data);
-        //   plotarGraficoBarra(data);
-        // })
-        // .catch(function(err){
-        //   console.log(err);
-        // })
 
-        var dados = [{
-            mes: 'Agosto',
-            estilo: 'Rock',
-            posts: 10
-        },
-        {
-            mes: 'Setembro',
-            estilo: 'Pop',
-            posts: 5
-        },
-        {
-            mes: 'Outubro',
-            estilo: 'Sertanejo',
-            posts: 15
-        },
-        {
-            mes: 'Novembro',
-            estilo: 'Rap',
-            posts: 20
-        },
-        {
-            mes: 'Dezembro',
-            estilo: '',
-            posts: 25
-        }
-        ]
-        plotarGraficoLinha(dados);
-        plotarGraficoBarra(dados);
+        fetch(`/musicas/listar`)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
+                    plotarGrafico(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
 
   function plotarGraficoLinha(dados){
   
   // Separando os rótulos (labels) e os dados dos votos
-  var votos = [];
-  var jogadores = [];
+  var estilos = [];
+  var quantidades = [];
 
   // Preenchendo os arrays com os dados
-  for(var i = 0; i < dados.length; i++){
-    votos.push(dados[i].votos);
-    jogadores.push(dados[i].jogador);
-  }
+        for(index = 0; index < resultado.length; index++){
+            estilos.push(resultado[index].estilo);
+            quantidades.push(resultado[index].quantidade);
+        }
 
+
+        let labels = []
   // Capturando o elemento canvas pelo id 
   var ctx = document.getElementById('linha').getContext('2d');
   // Criando o gráfico de linha usando o Chart.js
   var myChart = new Chart(ctx, {
       type: 'line', // Tipo de gráfico: linha
       data: { // Dados para o gráfico
-          labels: jogadores, // Rótulos no eixo X
+          labels: estilos, // Rótulos no eixo X
           datasets: [{ 
-              label: 'Votos', // Nome do conjunto de dados
-              data: votos, // Dados dos votos
+              label: 'Músicas', // Nome do conjunto de dados
+              data: quantidades, // Dados dos votos
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)', // Cor de fundo das linhas
               ],
@@ -185,37 +162,5 @@
   });
 } 
 
-// Função para plotar o gráfico de barra
-function plotarGraficoBarra(dados){
 
-  var votos = [];
-  var jogadores = [];
-
-  // Preenchendo os arrays com os dados
-  for(var i = 0; i < dados.length; i++){
-    votos.push(dados[i].votos);
-    jogadores.push(dados[i].jogador);
-  }
-
-  // Capturando o elemento canvas pelo id 
-  var ctx = document.getElementById('barra').getContext('2d');
-  // Criando o gráfico de barra usando o Chart.js
-  var myChart = new Chart(ctx, {
-      type: 'bar', // Tipo de gráfico: barra
-      data: { // Dados para o gráfico
-          labels: jogadores, // Rótulos no eixo X
-          datasets: [{
-              label: 'Votos', // Nome do conjunto de dados
-              data: votos, // Dados dos votos
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)', // Cor da borda das barras
-              ],
-              borderWidth: 1 // Largura da borda das barras
-          }]
-      },
-  });
-}
 </script>
