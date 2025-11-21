@@ -8,7 +8,7 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50),
 descricao VARCHAR(120),
 estilo VARCHAR (45),
-linkMusica VARCHAR (200)
+link VARCHAR (200)
 );
 
 CREATE TABLE estilo (

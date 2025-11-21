@@ -13,6 +13,12 @@ function cadastrar(nome, descricao, estilo, link) {
     return database.executar(instrucaoSql);
 }
 
+function listar(){
+    var instrucaoSql = `SELECT * FROM estilo`;
+
+    return database.executar(instrucaoSql);
+}
 module.exports = {
-    cadastrar
+    cadastrar,
+    listar
 };

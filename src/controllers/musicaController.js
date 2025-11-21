@@ -39,6 +39,17 @@ function cadastrar(req, res) {
     }
 }
 
+var musicaModel = require("../models/musicaModel");
+
+ function listar(req,res){
+    musicaModel.listar().then((resultado) => {
+    res.status(200).json(resultado);
+    })
+}
+module.exports = {listar};
+
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    listar
 }
