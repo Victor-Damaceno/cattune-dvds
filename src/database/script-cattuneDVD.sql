@@ -3,16 +3,6 @@ CREATE DATABASE cattuneDVD;
 
 USE cattuneDVD;
 
-CREATE TABLE musica (
-id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(50),
-descricao VARCHAR(120),
-estilo VARCHAR (45),
-link VARCHAR (200),
-usuario_id INT,
-FOREIGN KEY (usuario_id) REFERENCES usuario_id(id)
-);
-
 CREATE TABLE estilo (
 	id INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	nome VARCHAR (45)
@@ -26,6 +16,18 @@ CREATE TABLE usuario (
 	estilo_id INT,
 	FOREIGN KEY (estilo_id) REFERENCES estilo(id)
 );
+
+CREATE TABLE musica (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50),
+descricao VARCHAR(120),
+estilo VARCHAR (45),
+link VARCHAR (200),
+usuario_id INT,
+FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
+
+
 CREATE TABLE repertorio (
 nome VARCHAR (50),
 descricao VARCHAR(120),
@@ -48,6 +50,8 @@ INSERT INTO estilo (nome) VALUES
 ('Funk'),
 ('MPB'),
 ('Pagode');
+
+
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
 
