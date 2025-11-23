@@ -74,23 +74,28 @@
   function cadastrar() {
     // aguardar();
 
+    var usuario_id = sessionStorage.ID_USUARIO;
+    console.log(usuario_id);
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var descricaoVar = descricao_input.value;
     var estiloVar = estilo_input.value;
     var linkVar = link_input.value;
-    var usuario_idVar = sessionStorage.ID_USUARIO;
+    var usuario_idVar = usuario_id;
+
+  
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       descricaoVar == "" ||
       estiloVar == "#" ||
-      linkVar == "" 
+      linkVar == "" ||
+      usuario_idVar == ""
     ) {
         alert('Há campos obrigatórios em branco!');
-
+  console.log(usuario_idVar);
       return false;
     }
 
@@ -107,7 +112,7 @@
         descricaoServer: descricaoVar,
         estiloServer: estiloVar,
         linkServer: linkVar,
-        usuario_idServer: usuario_idVar  
+        usuario_idServer: usuario_idVar 
       }),
     })
       .then(function (resposta) {
@@ -126,7 +131,6 @@
         }
       })
       .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
       });
 
     return false;
