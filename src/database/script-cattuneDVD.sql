@@ -8,7 +8,9 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50),
 descricao VARCHAR(120),
 estilo VARCHAR (45),
-link VARCHAR (200)
+link VARCHAR (200),
+usuario_id INT,
+FOREIGN KEY (usuario_id) REFERENCES usuario_id(id)
 );
 
 CREATE TABLE estilo (

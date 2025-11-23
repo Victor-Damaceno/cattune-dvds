@@ -122,6 +122,8 @@ body {
 }
 
 .button {
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   font-family: 'Inter', Tahoma, "Barlow", sans-serif;
   border: 0;

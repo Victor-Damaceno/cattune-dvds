@@ -55,6 +55,11 @@
     width: 40%;
 }
 
+.imgBox img{
+    width: 40%;
+    height: 90%;
+}
+
 .sobremim .container h1 {
     font-family: 'Inter', Tahoma;
     font-weight: 800;
@@ -172,9 +177,9 @@
     font-weight: 800;
     margin: 5%;
 }
-.footer h4 { 
+.footer h3 { 
     font-family: 'Inter',Tahoma;
     color: #FFFF;
-    font-size: 15px;
+    font-size: 100%;
     margin: 5%;
 }

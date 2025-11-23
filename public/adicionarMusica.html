@@ -80,6 +80,7 @@
     var descricaoVar = descricao_input.value;
     var estiloVar = estilo_input.value;
     var linkVar = link_input.value;
+    var usuario_idVar = sessionStorage.ID_USUARIO;
 
     // Verificando se há algum campo em branco
     if (
@@ -105,7 +106,8 @@
         nomeServer: nomeVar,
         descricaoServer: descricaoVar,
         estiloServer: estiloVar,
-        linkServer: linkVar
+        linkServer: linkVar,
+        usuario_idServer: usuario_idVar  
       }),
     })
       .then(function (resposta) {

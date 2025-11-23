@@ -12,6 +12,12 @@ router.get("/listar", function (req, res) {
     musicaController.listar(req, res);
 });
 
+router.get("/listarMaior", function (req,res) {
+    musicaController.listarMaior(req, res)
+}
+
+)
+
 // router.get("/listarRepertorio",)
 //     musicaController.listarRepertorio(req, res);
 module.exports = router;

@@ -7,6 +7,7 @@ function cadastrar(req, res) {
     var descricao = req.body.descricaoServer;
     var estilo = req.body.estiloServer;
     var link = req.body.linkServer;
+    var id = req.body.usuario_idServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -18,10 +19,12 @@ function cadastrar(req, res) {
     }
     else if (link == undefined) {
         res.status(400).send("Seu link está undefined!");
+    } else if (id == undefined) {
+        res.status(400).send("Seu id está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        musicaModel.cadastrar(nome, descricao, estilo, link)
+        musicaModel.cadastrar(nome, descricao, estilo, link,id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -39,14 +42,29 @@ function cadastrar(req, res) {
     }
 }
 
-var musicaModel = require("../models/musicaModel");
+
 
  function listar(req,res){
-    musicaModel.listar().then((resultado) => {
+    musicaModel.listar(usuario_id).then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar suas músicas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+    
+}
+
+
+ function listarMaior(req,res){
+    musicaModel.listar(usuario_id).then((resultado) => {
     res.status(200).json(resultado);
     })
 }
-
 // function listarRepertorio(req,res){
 //     musicaModel.listarRepertorio().then((resultado) => {
 //         res.status(200).json(resultado);
@@ -56,5 +74,6 @@ var musicaModel = require("../models/musicaModel");
 module.exports = {
     cadastrar,
     listar,
+    listarMaior,
     // listarRepertorio
 }
