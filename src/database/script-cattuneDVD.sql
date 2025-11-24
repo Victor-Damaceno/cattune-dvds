@@ -55,5 +55,3 @@ INSERT INTO estilo (nome) VALUES
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
 
-
-

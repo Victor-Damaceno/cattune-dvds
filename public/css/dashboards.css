@@ -118,9 +118,24 @@ body {
 
 .grafico {
   display: flex;
+  width: 500px;
   height: 30vh;
 }
 
+.sair {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Inter', Tahoma, "Barlow", sans-serif;
+  border: 0;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 100%;
+}
+.sair a{
+    color: #FFFF;
+  text-decoration: none;
+}
 .button {
   display: flex;
   justify-content: center;
@@ -132,7 +147,7 @@ body {
   font-size: 100%;
   color: #fff;
   background-color: #F28E6B;
-  width: 50%;
+  width: 60%;
   align-self: center;
   align-items: center;
   padding: 4%;
@@ -163,6 +178,10 @@ body {
   height: 100%;
 }
 
+#linha{
+  width: 500px;
+}
+
 .header {
   display: flex;
   height: 80px;
@@ -172,6 +191,35 @@ body {
   z-index: 1000;
   padding: 1%;
 }
+
+.musicaBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+  width: 600px;
+  background-image: linear-gradient(to bottom, #f28e6b, #e07507);
+  padding-bottom: 5%;
+  padding-top: 5%;
+  margin-bottom: 10%;
+  margin-top: 10%;
+    border-radius: 15px;
+  color: #FFFF;
+}
+
+.tituloMusica{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.link {
+    color: #FFFF;
+
+}
+
+
 
 /* ESTILIZAÇÕES AQUATEC VV*/
 .label-captura {

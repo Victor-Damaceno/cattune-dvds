@@ -24,7 +24,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        musicaModel.cadastrar(nome, descricao, estilo, link,id)
+        musicaModel.cadastrar(nome, descricao, estilo, link, id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -44,8 +44,11 @@ function cadastrar(req, res) {
 
 
 
- function listar(req,res){
-    musicaModel.listar(usuario_id).then((resultado) => {
+function listar(req, res) {
+
+    var id = req.params.usuario_id;
+    
+    musicaModel.listar(id).then((resultado) => {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -56,24 +59,41 @@ function cadastrar(req, res) {
         console.log("Houve um erro ao buscar suas músicas.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
-    
+
 }
 
 
- function listarMaior(req,res){
-    musicaModel.listar(usuario_id).then((resultado) => {
-    res.status(200).json(resultado);
+function listarMaior(req, res) {
+    console.log("PARAMS:", req.params);
+    var id = req.params.usuario_id;
+
+    musicaModel.listarMaior(id).then((resultado) => {
+        res.status(200).json(resultado);
+
+    }).catch((erro) => {
+        console.log("Erro no controller:", erro);
+        res.status(500).json(erro);
+    }
+    )
+}
+
+function mostrarMusicas(req, res){
+    console.log(req.params)
+    var id = req.params.usuario_id;
+
+    musicaModel.mostrarMusicas(id).then((resultado) => {
+        res.status(200).json(resultado);
+    }).catch((erro) => {
+        console.log("ERRO no controler",erro);
+        res.status(500).json(erro.sqlMessage);
     })
+
 }
-// function listarRepertorio(req,res){
-//     musicaModel.listarRepertorio().then((resultado) => {
-//         res.status(200).json(resultado);
-//     })
-// }
 
 module.exports = {
     cadastrar,
     listar,
     listarMaior,
+    mostrarMusicas
     // listarRepertorio
 }

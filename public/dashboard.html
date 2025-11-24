@@ -23,9 +23,13 @@
             </li>
             <div class="navbar">
 
+                <li class="sair" onclick="deslogar()">
+                    <a href="index.html">Sair</a>
+                </li>                   
                 <li class="button">
                     <a href="adicionarMusica.html">Adicionar Música</a>
                 </li>
+             
             </div>
         </div>
     </div>
@@ -39,15 +43,15 @@
             <div class="TopDashboard">
                 <div class="kpiBox">
                     <h1>Estilos mais publicados neste mês:</h1>
-                    <h2 id="m_publicacoes"></h2>
+                    <h2 id="m_publicacoes"> Sem dados</h2>
                 </div>
                 <div class="kpiBox">
                     <h1>Estilo de música favorita:</h1>
                     <h2 id="e_usuario"></h2>
                 </div>
                 <div class="kpiBox">
-                    <h1>Publicações feitas nesse mês</h1>
-                    <h2>b</h2>
+                    <h1>Total de publicações feitas até agora</h1>
+                    <h2>0</h2>
                 </div>
             </div>
             <div class="corpoDashboard">
@@ -59,7 +63,17 @@
                 <div class="grafico">
                     <canvas id="barra"></canvas>
                 </div>
+
+            <div class="musicasUsuario" id="musicas">
+                <h1>Suas músicas</h1>
+
+              
+                </div>
+            </div>                
+
             </div>
+
+
 
         </div>
 
@@ -68,6 +82,18 @@
 
 </html>
 <script>
+
+
+
+    function deslogar(){
+        
+    sessionStorage.NOME_USUARIO = '';
+     sessionStorage.ID_USUARIO ='';
+    sessionStorage.ESTILO = '';
+    sessionStorage.EMAIL_USUARIO = '';
+        window.location = 'login.html';
+    }
+
     n_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     var usuario_id = sessionStorage.ID_USUARIO;
@@ -108,21 +134,21 @@
     function obterDadosGrafico() {
 
 
-        // fetch(`/musicas/listar`)
-        // .then(function (response) {
-        //     if (response.ok) {
-        //         response.json().then(function (resposta) {
-        //             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-        //             plotarGraficoLinha(resposta)
+        fetch(`/musicas/listar/${usuario_id}`)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    plotarGraficoBarra1(resposta)
 
-        //         });
-        //     } else {
-        //         console.error('Nenhum dado encontrado ou erro na API');
-        //     }
-        // })
-        //     .catch(function (error) {
-        //         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        //     });
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
 
 
 
@@ -133,9 +159,36 @@
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        if(resposta[0].estilo == '1'){
+                            resposta[0].estilo = 'Pop';
+                        }
                         if(resposta[0].estilo == '2'){
                             resposta[0].estilo = 'Rock';
                         }
+                        if(resposta[0].estilo == '3'){
+                            resposta[0].estilo = 'Hip-hop';
+                        }
+                        if(resposta[0].estilo == '4'){
+                            resposta[0].estilo = 'Rap';
+                        }
+                        if(resposta[0].estilo == '5'){
+                            resposta[0].estilo = 'Trap';
+                        }
+                        if(resposta[0].estilo == '6'){
+                            resposta[0].estilo = 'Rock';
+                        }
+                        if(resposta[0].estilo == '7'){
+                            resposta[0].estilo = 'Samba';
+                        }
+                        if(resposta[0].estilo == '8'){
+                            resposta[0].estilo = 'Funk';
+                        }
+                        if(resposta[0].estilo == '9'){
+                            resposta[0].estilo = 'MPB';
+                        }
+                        if(resposta[0].estilo == '10'){
+                            resposta[0].estilo = 'Pagode';
+                        }                                                                                                                                                                        
                         m_publicacoes.innerHTML = resposta[0].estilo;
 
                     });
@@ -151,6 +204,76 @@
 
 
 
+        fetch(`/musicas/mostrarMusicas/${usuario_id}`)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    
+                    for(index = 0; index < resposta.length; index++){
+
+                          if(resposta[0].estilo == 1){
+                            resposta[0].estilo = 'Pop';
+                        }
+                        if(resposta[0].estilo == 2){
+                            resposta[0].estilo = 'Rock';
+                        }
+                        if(resposta[0].estilo == 3){
+                            resposta[0].estilo = 'Hip-hop';
+                        }
+                        if(resposta[0].estilo == 4){
+                            resposta[0].estilo = 'Rap';
+                        }
+                        if(resposta[0].estilo == 5){
+                            resposta[0].estilo = 'Trap';
+                        }
+                        if(resposta[0].estilo == 6){
+                            resposta[0].estilo = 'Rock';
+                        }
+                        if(resposta[0].estilo == 7){
+                            resposta[0].estilo = 'Samba';
+                        }
+                        if(resposta[0].estilo == 8){
+                            resposta[0].estilo = 'Funk';
+                        }
+                        if(resposta[0].estilo == 9){
+                            resposta[0].estilo = 'MPB';
+                        }
+                        if(resposta[0].estilo == 10){
+                            resposta[0].estilo = 'Pagode';
+                        }
+
+                         nome_musica = resposta[index].nome;
+                         descricao_musica = resposta[index].descricao;
+                         estilo_musica = resposta[index].estilo;
+                         link_musica = resposta[index].link;
+                         musicas.innerHTML += `
+                        
+                          <div class="musicaBox">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                      
+                        <a class='link' href='${link_musica}'>Acessar música</a>                                                          
+                    </div>`
+
+
+                    }
+
+                        
+                        
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
 
 
 
@@ -160,7 +283,7 @@
 
 
 
-    function plotarGraficoLinha(resultado) {
+    function plotarGraficoBarra1(resultado) {
 
         // Separando os rótulos (labels) e os dados dos votos
         var estilos = [];
@@ -168,15 +291,36 @@
 
         // Preenchendo os arrays com os dados
         for (index = 0; index < resultado.length; index++) {
-            if (resultado[index].estilo == '2') {
-                resultado[index].estilo = 'Rock';
-            }
             if (resultado[index].estilo == '1') {
-                resultado[index].estilo = 'Pop'
+                resultado[index].estilo = 'Pop';
+            }
+            if (resultado[index].estilo == '2') {
+                resultado[index].estilo = 'Rock'
+            }
+            if (resultado[index].estilo == '3') {
+                resultado[index].estilo = 'Hip-hop'
             }
             if (resultado[index].estilo == '4') {
                 resultado[index].estilo = 'Rap'
             }
+            if (resultado[index].estilo == '5') {
+                resultado[index].estilo = 'Trap'
+            }
+            if (resultado[index].estilo == '6') {
+                resultado[index].estilo = 'Kpop'
+            }
+            if (resultado[index].estilo == '7') {
+                resultado[index].estilo = 'Samba'
+            }
+            if (resultado[index].estilo == '8') {
+                resultado[index].estilo = 'Funk'
+            }
+            if (resultado[index].estilo == '9') {
+                resultado[index].estilo = 'MPB'
+            }
+            if (resultado[index].estilo == '10') {
+                resultado[index].estilo = 'Pagode'
+            }             
             estilos.push(resultado[index].estilo);
             quantidades.push(resultado[index].quantidade);
 
@@ -188,17 +332,19 @@
         var ctx = document.getElementById('linha').getContext('2d');
         // Criando o gráfico de linha usando o Chart.js
         var myChart = new Chart(ctx, {
-            type: 'line', // Tipo de gráfico: linha
+            type: 'bar', // Tipo de gráfico: barra
             data: { // Dados para o gráfico
                 labels: estilos, // Rótulos no eixo X
                 datasets: [{
-                    label: estilos, // Nome do conjunto de dados
+                    label: 'Músicas', // Nome do conjunto de dados
                     data: quantidades, // Dados das quantidades
+                    maxBarThickness: 60,
+
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)', // Cor de fundo das linhas
+                        '#f28f6b5d', // Cor de fundo das linhas
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)', // Cor da borda das linhas
+                        'rgb(242, 142, 107)', // Cor da borda das linhas
                     ],
                     borderWidth: 1 // Largura da borda das linhas
                 }]

@@ -99,6 +99,14 @@
       return false;
     }
 
+    if(nomeVar.length > 35){
+      alert('Nome ultrapassou o limite de 35 caracteres!');
+      return false;
+    } else if(nomeVar.length <= 1){
+      alert('Insira um nome de uma música com pelo menos 2 caractéres ou mais');
+      return false;
+    }
+
     // Enviando o valor da nova input
     fetch("/musicas/cadastrar", {
       method: "POST",

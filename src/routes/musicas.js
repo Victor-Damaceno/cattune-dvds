@@ -8,15 +8,18 @@ router.post("/cadastrar", function (req, res) {
     musicaController.cadastrar(req, res);
 })
 
-router.get("/listar", function (req, res) {
+router.get("/listar/:usuario_id", function (req, res) {
     musicaController.listar(req, res);
 });
 
-router.get("/listarMaior", function (req,res) {
+router.get("/listarMaior/:usuario_id", function (req,res) {
     musicaController.listarMaior(req, res)
 }
 
 )
+router.get("/mostrarMusicas/:usuario_id", function(req,res){
+    musicaController.mostrarMusicas(req,res)
+})
 
 // router.get("/listarRepertorio",)
 //     musicaController.listarRepertorio(req, res);
