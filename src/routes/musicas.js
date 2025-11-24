@@ -14,11 +14,13 @@ router.get("/listar/:usuario_id", function (req, res) {
 
 router.get("/listarMaior/:usuario_id", function (req,res) {
     musicaController.listarMaior(req, res)
-}
+})
 
-)
 router.get("/mostrarMusicas/:usuario_id", function(req,res){
     musicaController.mostrarMusicas(req,res)
+})
+router.get("/contarPublicacoes/:usuario_id", function(req,res){
+    musicaController.contarPublicacoes(req,res)
 })
 
 // router.get("/listarRepertorio",)

@@ -90,10 +90,27 @@ function mostrarMusicas(req, res){
 
 }
 
+function contarPublicacoes(req, res) {
+    console.log("PARAMS:", req.params);
+    var id = req.params.usuario_id;
+
+    musicaModel.contarPublicacoes(id).then((resultado) => {
+        res.status(200).json(resultado);
+
+    }).catch((erro) => {
+        console.log("Erro no controller:", erro);
+        res.status(500).json(erro);
+    }
+    )
+}
+
+
+
 module.exports = {
     cadastrar,
     listar,
     listarMaior,
-    mostrarMusicas
+    mostrarMusicas,
+    contarPublicacoes
     // listarRepertorio
 }

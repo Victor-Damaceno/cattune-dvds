@@ -25,11 +25,11 @@
 
                 <li class="sair" onclick="deslogar()">
                     <a href="index.html">Sair</a>
-                </li>                   
+                </li>
                 <li class="button">
                     <a href="adicionarMusica.html">Adicionar Música</a>
                 </li>
-             
+
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="kpiBox">
                     <h1>Total de publicações feitas até agora</h1>
-                    <h2>0</h2>
+                    <h2 id="total_pubs">0</h2>
                 </div>
             </div>
             <div class="corpoDashboard">
@@ -64,18 +64,18 @@
                     <canvas id="barra"></canvas>
                 </div>
 
-            <div class="musicasUsuario" id="musicas">
-                <h1>Suas músicas</h1>
+                <div class="musicasUsuario" id="musicas">
+                    <h1>Suas músicas</h1>
 
-              
+
                 </div>
-            </div>                
-
             </div>
 
-
-
         </div>
+
+
+
+    </div>
 
     </div>
 </body>
@@ -85,12 +85,12 @@
 
 
 
-    function deslogar(){
-        
-    sessionStorage.NOME_USUARIO = '';
-     sessionStorage.ID_USUARIO ='';
-    sessionStorage.ESTILO = '';
-    sessionStorage.EMAIL_USUARIO = '';
+    function deslogar() {
+
+        sessionStorage.NOME_USUARIO = '';
+        sessionStorage.ID_USUARIO = '';
+        sessionStorage.ESTILO = '';
+        sessionStorage.EMAIL_USUARIO = '';
         window.location = 'login.html';
     }
 
@@ -135,20 +135,22 @@
 
 
         fetch(`/musicas/listar/${usuario_id}`)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    plotarGraficoBarra1(resposta)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        plotarGraficoBarra1(resposta)
 
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
+
+
 
 
 
@@ -159,36 +161,36 @@
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        if(resposta[0].estilo == '1'){
+                        if (resposta[0].estilo == '1') {
                             resposta[0].estilo = 'Pop';
                         }
-                        if(resposta[0].estilo == '2'){
+                        if (resposta[0].estilo == '2') {
                             resposta[0].estilo = 'Rock';
                         }
-                        if(resposta[0].estilo == '3'){
+                        if (resposta[0].estilo == '3') {
                             resposta[0].estilo = 'Hip-hop';
                         }
-                        if(resposta[0].estilo == '4'){
+                        if (resposta[0].estilo == '4') {
                             resposta[0].estilo = 'Rap';
                         }
-                        if(resposta[0].estilo == '5'){
+                        if (resposta[0].estilo == '5') {
                             resposta[0].estilo = 'Trap';
                         }
-                        if(resposta[0].estilo == '6'){
+                        if (resposta[0].estilo == '6') {
                             resposta[0].estilo = 'Rock';
                         }
-                        if(resposta[0].estilo == '7'){
+                        if (resposta[0].estilo == '7') {
                             resposta[0].estilo = 'Samba';
                         }
-                        if(resposta[0].estilo == '8'){
+                        if (resposta[0].estilo == '8') {
                             resposta[0].estilo = 'Funk';
                         }
-                        if(resposta[0].estilo == '9'){
+                        if (resposta[0].estilo == '9') {
                             resposta[0].estilo = 'MPB';
                         }
-                        if(resposta[0].estilo == '10'){
+                        if (resposta[0].estilo == '10') {
                             resposta[0].estilo = 'Pagode';
-                        }                                                                                                                                                                        
+                        }
                         m_publicacoes.innerHTML = resposta[0].estilo;
 
                     });
@@ -205,49 +207,49 @@
 
 
         fetch(`/musicas/mostrarMusicas/${usuario_id}`)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    
-                    for(index = 0; index < resposta.length; index++){
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                          if(resposta[0].estilo == 1){
-                            resposta[0].estilo = 'Pop';
-                        }
-                        if(resposta[0].estilo == 2){
-                            resposta[0].estilo = 'Rock';
-                        }
-                        if(resposta[0].estilo == 3){
-                            resposta[0].estilo = 'Hip-hop';
-                        }
-                        if(resposta[0].estilo == 4){
-                            resposta[0].estilo = 'Rap';
-                        }
-                        if(resposta[0].estilo == 5){
-                            resposta[0].estilo = 'Trap';
-                        }
-                        if(resposta[0].estilo == 6){
-                            resposta[0].estilo = 'Rock';
-                        }
-                        if(resposta[0].estilo == 7){
-                            resposta[0].estilo = 'Samba';
-                        }
-                        if(resposta[0].estilo == 8){
-                            resposta[0].estilo = 'Funk';
-                        }
-                        if(resposta[0].estilo == 9){
-                            resposta[0].estilo = 'MPB';
-                        }
-                        if(resposta[0].estilo == 10){
-                            resposta[0].estilo = 'Pagode';
-                        }
+                        for (index = 0; index < resposta.length; index++) {
 
-                         nome_musica = resposta[index].nome;
-                         descricao_musica = resposta[index].descricao;
-                         estilo_musica = resposta[index].estilo;
-                         link_musica = resposta[index].link;
-                         musicas.innerHTML += `
+                            if (resposta[0].estilo == 1) {
+                                resposta[0].estilo = 'Pop';
+                            }
+                            if (resposta[0].estilo == 2) {
+                                resposta[0].estilo = 'Rock';
+                            }
+                            if (resposta[0].estilo == 3) {
+                                resposta[0].estilo = 'Hip-hop';
+                            }
+                            if (resposta[0].estilo == 4) {
+                                resposta[0].estilo = 'Rap';
+                            }
+                            if (resposta[0].estilo == 5) {
+                                resposta[0].estilo = 'Trap';
+                            }
+                            if (resposta[0].estilo == 6) {
+                                resposta[0].estilo = 'Rock';
+                            }
+                            if (resposta[0].estilo == 7) {
+                                resposta[0].estilo = 'Samba';
+                            }
+                            if (resposta[0].estilo == 8) {
+                                resposta[0].estilo = 'Funk';
+                            }
+                            if (resposta[0].estilo == 9) {
+                                resposta[0].estilo = 'MPB';
+                            }
+                            if (resposta[0].estilo == 10) {
+                                resposta[0].estilo = 'Pagode';
+                            }
+
+                            nome_musica = resposta[index].nome;
+                            descricao_musica = resposta[index].descricao;
+                            estilo_musica = resposta[index].estilo;
+                            link_musica = resposta[index].link;
+                            musicas.innerHTML += `
                         
                           <div class="musicaBox">
                     <div class="TituloMusica">
@@ -261,10 +263,28 @@
                     </div>`
 
 
-                    }
+                        }
 
-                        
-                        
+
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+
+
+     fetch(`/musicas/contarPublicacoes/${usuario_id}`)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                         total_pubs.innerHTML = resposta[0].total;
+
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -275,10 +295,10 @@
             });
 
 
-
-
-
     }
+
+
+
 
 
 
@@ -320,7 +340,7 @@
             }
             if (resultado[index].estilo == '10') {
                 resultado[index].estilo = 'Pagode'
-            }             
+            }
             estilos.push(resultado[index].estilo);
             quantidades.push(resultado[index].quantidade);
 
@@ -339,7 +359,6 @@
                     label: 'Músicas', // Nome do conjunto de dados
                     data: quantidades, // Dados das quantidades
                     maxBarThickness: 60,
-
                     backgroundColor: [
                         '#f28f6b5d', // Cor de fundo das linhas
                     ],
@@ -349,6 +368,16 @@
                     borderWidth: 1 // Largura da borda das linhas
                 }]
             },
+            options: {
+                scales: {
+                    y: {
+                        ticks: {
+                            precision: 0,
+                        },
+                        beginAtZero: true,
+                    }
+                }
+            }
         });
     }
 

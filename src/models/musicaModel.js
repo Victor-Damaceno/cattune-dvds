@@ -36,6 +36,12 @@ function mostrarMusicas(id){
     return database.executar(instrucaoSql);
 }
 
+function contarPublicacoes(id){
+    var instrucaoSql = `SELECT COUNT(id) AS total FROM musica WHERE usuario_id = ${id}` 
+
+    return database.executar(instrucaoSql);
+}
+
 // function listarRepertorio(){
 //     var instrucaoSql = `SELECT COUNT(id) AS quantidade FROM musica`
 // }
@@ -43,6 +49,7 @@ module.exports = {
     cadastrar,
     listar,
     listarMaior,
-    mostrarMusicas
+    mostrarMusicas,
+    contarPublicacoes
     // listarRepertorio
 };
