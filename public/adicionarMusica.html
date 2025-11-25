@@ -84,6 +84,11 @@
     var linkVar = link_input.value;
     var usuario_idVar = usuario_id;
 
+
+    if(linkVar.indexOf('https://') == -1 || linkVar.indexOf('https://')){
+      alert('link inválido!');
+      return false;
+    }
   
 
     // Verificando se há algum campo em branco

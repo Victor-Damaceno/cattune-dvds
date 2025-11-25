@@ -11,8 +11,6 @@ body {
   max-width: 100%;
 }
 
-
-
 .header img {
   height: 70px;
 }
@@ -27,6 +25,18 @@ body {
   width: 100%;
   display: flex;
   margin: auto;
+}
+
+.inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+      color: #FFFF;
+  font-family: 'Deezer corporate typeface1', 'Inter', Tahoma;
+  text-decoration: none;
+  list-style-type: none;
+  margin-bottom: 5%;
+  font-size: 30px;
 }
 
 .corpo {
@@ -105,15 +115,21 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 500px;
   background-image: linear-gradient(to bottom, #362B26, black);
   border-radius: 15px;
-  overflow-y: auto;
+
 }
 
 .corpoDashboard h1 {
   color: #FFFF;
   font-family: 'Inter', Tahoma;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+.corpoDashboard h2 {
+  color: #FFFF;
+  font-family: 'Inter', Tahoma;
+  font-size: 25px;
 }
 
 .grafico {
@@ -184,13 +200,16 @@ body {
 
 .header {
   display: flex;
+  background-image: linear-gradient(to bottom, #362B26, #161618);
   height: 80px;
   top: 0;
   left: 0;
-  width: 95%;
+  width: 98%;
   z-index: 1000;
   padding: 1%;
+  margin-bottom: 2%;
 }
+
 
 .musicaBox{
   display: flex;
@@ -217,6 +236,17 @@ body {
 .link {
     color: #FFFF;
 
+}
+
+.buttonMusica {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  width: 25%;
+  cursor: pointer;
+  background-image: linear-gradient(to bottom, #e07507, #362B26 );
+  border-radius: 20px;
 }
 
 

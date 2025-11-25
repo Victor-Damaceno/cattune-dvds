@@ -18,9 +18,6 @@
             <a href="#">
                 <img src="./assets/icon/VictorDVD_logo.png" id="logo">
             </a>
-            <li>
-                <h1>Bem vindo, <span id="n_usuario"></span></h1>
-            </li>
             <div class="navbar">
 
                 <li class="sair" onclick="deslogar()">
@@ -33,9 +30,15 @@
             </div>
         </div>
     </div>
+    <div class="inicio">
+                    <li>
+                <h1>Olá, <span id="n_usuario"></span></h1>
+            </li>
+
+    </div>
     <div class="corpo">
         <div class="menu">
-            <h1>Repertórios</h1>
+            <h1>Lista de músicas públicadas até agora</h1>
 
 
         </div>
@@ -50,23 +53,23 @@
                     <h2 id="e_usuario"></h2>
                 </div>
                 <div class="kpiBox">
-                    <h1>Total de publicações feitas até agora</h1>
+                    <h1>Total de músicas gravadas até agora</h1>
                     <h2 id="total_pubs">0</h2>
                 </div>
             </div>
             <div class="corpoDashboard">
-                <h1>Estilo de músicas públicados:</h1>
+                <h1>Estilo de músicas publicados:</h1>
                 <div class="grafico">
                     <canvas id="linha"></canvas>
                 </div>
-                <h1>Seus repertórios públicados:</h1>
+                <h1>Suas músicas publicadas até o momento:</h1>
+                <h2>(Nos últimos 5 meses)</h2>
                 <div class="grafico">
                     <canvas id="barra"></canvas>
                 </div>
 
                 <div class="musicasUsuario" id="musicas">
                     <h1>Suas músicas</h1>
-
 
                 </div>
             </div>
@@ -249,8 +252,9 @@
                             descricao_musica = resposta[index].descricao;
                             estilo_musica = resposta[index].estilo;
                             link_musica = resposta[index].link;
+                            
+                            
                             musicas.innerHTML += `
-                        
                           <div class="musicaBox">
                     <div class="TituloMusica">
                         <h1 id="titulo_musica">${nome_musica}</h1>
@@ -259,9 +263,13 @@
                     <div class="corpoMusica" onclick="levarAoLink()">
                         <p>${descricao_musica}</p>
                       
-                        <a class='link' href='${link_musica}'>Acessar música</a>                                                          
-                    </div>`
-
+                        <a class='link' href='${link_musica}'>Ouvir música</a>                                                          
+                    </div>
+                    <div class='buttonMusica' onclick='deletarMusica()'>
+                        Deletar música  
+                    </div>
+                    `
+                        
 
                         }
 

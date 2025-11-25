@@ -120,7 +120,7 @@
 }
 
 .social {
-    background-image: linear-gradient(to bottom, #E07507, #F2BC6B );;
+    background-image: linear-gradient(to bottom, #E07507, #F2BC6B );
     display: flex;
     height: 100vh;
       border-bottom: 2px solid #FFFF;
