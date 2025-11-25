@@ -37,7 +37,7 @@
 
     </div>
     <div class="corpo">
-        <div class="menu">
+        <div class="menu" id="musicas">
             <h1>Lista de músicas públicadas até agora</h1>
 
 
@@ -68,10 +68,7 @@
                     <canvas id="barra"></canvas>
                 </div>
 
-                <div class="musicasUsuario" id="musicas">
-                    <h1>Suas músicas</h1>
 
-                </div>
             </div>
 
         </div>
@@ -217,43 +214,45 @@
 
                         for (index = 0; index < resposta.length; index++) {
 
-                            if (resposta[0].estilo == 1) {
+                            if (resposta[0].estilo == '1') {
                                 resposta[0].estilo = 'Pop';
                             }
-                            if (resposta[0].estilo == 2) {
+                            if (resposta[0].estilo == '2') {
                                 resposta[0].estilo = 'Rock';
                             }
-                            if (resposta[0].estilo == 3) {
+                            if (resposta[0].estilo == '3') {
                                 resposta[0].estilo = 'Hip-hop';
                             }
-                            if (resposta[0].estilo == 4) {
-                                resposta[0].estilo = 'Rap';
-                            }
-                            if (resposta[0].estilo == 5) {
+
+                            if (resposta[0].estilo == '5') {
                                 resposta[0].estilo = 'Trap';
                             }
-                            if (resposta[0].estilo == 6) {
-                                resposta[0].estilo = 'Rock';
+                            if (resposta[0].estilo == '6') {
+                                resposta[0].estilo = 'KPOP';
                             }
-                            if (resposta[0].estilo == 7) {
+                            if (resposta[0].estilo == '7') {
                                 resposta[0].estilo = 'Samba';
                             }
-                            if (resposta[0].estilo == 8) {
+                            if (resposta[0].estilo == '8') {
                                 resposta[0].estilo = 'Funk';
                             }
-                            if (resposta[0].estilo == 9) {
+                            if (resposta[0].estilo == '9') {
                                 resposta[0].estilo = 'MPB';
                             }
-                            if (resposta[0].estilo == 10) {
+                            if (resposta[0].estilo == '10') {
                                 resposta[0].estilo = 'Pagode';
                             }
 
+     
                             nome_musica = resposta[index].nome;
                             descricao_musica = resposta[index].descricao;
                             estilo_musica = resposta[index].estilo;
                             link_musica = resposta[index].link;
                             
-                            
+                              if(estilo_musica == '4'){
+                                estilo_musica = 'Rap'
+                            }                     
+
                             musicas.innerHTML += `
                           <div class="musicaBox">
                     <div class="TituloMusica">
@@ -262,12 +261,11 @@
                     </div>
                     <div class="corpoMusica" onclick="levarAoLink()">
                         <p>${descricao_musica}</p>
-                      
-                        <a class='link' href='${link_musica}'>Ouvir música</a>                                                          
-                    </div>
-                    <div class='buttonMusica' onclick='deletarMusica()'>
-                        Deletar música  
-                    </div>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>
+                        <a onclick='deletarMusica()' href='' class='deletar'>Deletar música</a>                                                          
                     `
                         
 
@@ -307,7 +305,9 @@
 
 
 
-
+    function deletar(){
+        
+    }
 
 
 

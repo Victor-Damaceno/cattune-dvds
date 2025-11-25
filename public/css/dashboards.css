@@ -48,7 +48,7 @@ body {
 .menu {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 30%;
   height: 600px;
   background-color: #161618;
   background-image: linear-gradient(to bottom, #362B26, #35323128);
@@ -62,6 +62,7 @@ body {
 .menu h1 {
   font-size: 30px;
   color: #FFFF;
+  margin-left: 5%;
 }
 
 .dashboard {
@@ -216,15 +217,21 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: 400px;
-  width: 600px;
+  height: 265px;
+  width: 100%;
   background-image: linear-gradient(to bottom, #f28e6b, #e07507);
   padding-bottom: 5%;
   padding-top: 5%;
   margin-bottom: 10%;
-  margin-top: 10%;
+  margin-top: 5%;
     border-radius: 15px;
   color: #FFFF;
+}
+
+.musicaBox h1 {
+  justify-content: center;
+  margin: 0%;
+  margin-bottom: 5%;
 }
 
 .tituloMusica{
@@ -232,10 +239,21 @@ body {
   justify-content: center;
   width: 100%;
 }
+.corpoMusica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .link {
     color: #FFFF;
+    margin-bottom: 5% ;
+}
 
+.deletar{
+  color: #FFFF;
+  text-decoration: none;
 }
 
 .buttonMusica {
@@ -247,6 +265,8 @@ body {
   cursor: pointer;
   background-image: linear-gradient(to bottom, #e07507, #362B26 );
   border-radius: 20px;
+  margin-top: 2%;
+  margin-bottom: 5%;
 }
 
 
