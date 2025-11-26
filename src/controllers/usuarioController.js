@@ -80,7 +80,50 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarPref(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+       var nomeMusico = req.body.nomeMusicoServer;
+       var instrumento = req.body.instrumentoServer;
+       var tecnica = req.body.tecnicaServer;
+       var nivel = req.body.nivelServer;
+       var voz = req.body.vozServer;
+
+
+    // Faça as validações dos valores
+    if (nomeMusico == undefined) {
+        res.status(400).send("O nomeMusico está undefined!");
+    } else if (instrumento == undefined) {
+        res.status(400).send("O instrumento está undefined!");
+    } else if (tecnica == undefined) {
+        res.status(400).send("Sua tecnica está undefined!");
+    } else if (voz == undefined) {
+        res.status(400).send("Sua voz está undefined!");
+    } else if (nivel == undefined) {
+        res.status(400).send("Seu nivel está undefined!"); 
+    }
+     else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrar(nomeMusico, instrumento, tecnica, nivel, voz)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarPref
 }
