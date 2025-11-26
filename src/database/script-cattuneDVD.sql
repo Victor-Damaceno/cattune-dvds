@@ -30,7 +30,7 @@ estilo VARCHAR (45),
 link VARCHAR (200),
 usuario_id INT,
 FOREIGN KEY (usuario_id) REFERENCES usuario(id),
-data_musica CURRENT_TIME
+data_musica DATE
 );
 
 
