@@ -31,9 +31,9 @@
         </div>
     </div>
     <div class="inicio">
-                    <li>
-                <h1>Olá, <span id="n_usuario"></span></h1>
-            </li>
+        <li>
+            <h1>Olá, <span id="n_usuario"></span></h1>
+        </li>
 
     </div>
     <div class="corpo">
@@ -56,9 +56,9 @@
                     <h1>Total de músicas gravadas até agora</h1>
                     <h2 id="total_pubs">0</h2>
                 </div>
-                   <div class="kpiBox">
-                    <h1>Total de </h1>
-                    <h2 id="total_pubs">0</h2>
+                <div class="kpiBox">
+                    <h1>Classe vocal: </h1>
+                    <h2 id="voz">0</h2>
                 </div>
             </div>
             <div class="corpoDashboard">
@@ -217,45 +217,42 @@
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                         for (index = 0; index < resposta.length; index++) {
-
-                            if (resposta[0].estilo == '1') {
-                                resposta[0].estilo = 'Pop';
-                            }
-                            if (resposta[0].estilo == '2') {
-                                resposta[0].estilo = 'Rock';
-                            }
-                            if (resposta[0].estilo == '3') {
-                                resposta[0].estilo = 'Hip-hop';
-                            }
-
-                            if (resposta[0].estilo == '5') {
-                                resposta[0].estilo = 'Trap';
-                            }
-                            if (resposta[0].estilo == '6') {
-                                resposta[0].estilo = 'KPOP';
-                            }
-                            if (resposta[0].estilo == '7') {
-                                resposta[0].estilo = 'Samba';
-                            }
-                            if (resposta[0].estilo == '8') {
-                                resposta[0].estilo = 'Funk';
-                            }
-                            if (resposta[0].estilo == '9') {
-                                resposta[0].estilo = 'MPB';
-                            }
-                            if (resposta[0].estilo == '10') {
-                                resposta[0].estilo = 'Pagode';
-                            }
-
-     
                             nome_musica = resposta[index].nome;
                             descricao_musica = resposta[index].descricao;
                             estilo_musica = resposta[index].estilo;
                             link_musica = resposta[index].link;
-                            
-                              if(estilo_musica == '4'){
+
+
+                            if (estilo_musica == '1') {
+                                estilo_musica = 'Pop';
+                            }
+                            if (estilo_musica == '2') {
+                                estilo_musica = 'Rock';
+                            }
+                            if (estilo_musica == '3') {
+                                estilo_musica = 'Hip-hop';
+                            }
+                            if (estilo_musica == '4') {
                                 estilo_musica = 'Rap'
-                            }                     
+                            }
+                            if (estilo_musica == '5') {
+                                estilo_musica = 'Trap';
+                            }
+                            if (estilo_musica == '6') {
+                                estilo_musica = 'KPOP';
+                            }
+                            if (estilo_musica == '7') {
+                                estilo_musica = 'Samba';
+                            }
+                            if (estilo_musica == '8') {
+                                estilo_musica = 'Funk';
+                            }
+                            if (estilo_musica == '9') {
+                                estilo_musica = 'MPB';
+                            }
+                            if (estilo_musica == '10') {
+                                estilo_musica = 'Pagode';
+                            }
 
                             musicas.innerHTML += `
                           <div class="musicaBox">
@@ -271,7 +268,7 @@
                             </div>
                         <a onclick='deletarMusica()' href='' class='deletar'>Deletar música</a>                                                          
                     `
-                        
+
 
                         }
 
@@ -288,29 +285,30 @@
 
 
 
-     fetch(`/musicas/contarPublicacoes/${usuario_id}`)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                         total_pubs.innerHTML = resposta[0].total;
+        fetch(`/musicas/contarPublicacoes/${usuario_id}`)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        total_pubs.innerHTML = resposta[0].total;
 
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
 
 
+            
     }
 
 
 
-    function deletar(){
-        
+    function deletar() {
+
     }
 
 

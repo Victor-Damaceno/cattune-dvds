@@ -90,6 +90,8 @@ function mostrarMusicas(req, res){
 
 }
 
+
+
 function contarPublicacoes(req, res) {
     console.log("PARAMS:", req.params);
     var id = req.params.usuario_id;
