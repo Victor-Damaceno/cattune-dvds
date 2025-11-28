@@ -11,7 +11,7 @@
 </head>
 
 <!-- onload="listarEstilos()" -->
-<body>
+<body onload="esconder()">
   <div class="corpo">
     <div class="header">
       <div class="container">
@@ -23,53 +23,125 @@
     <div class="container">
       <div class="card-cadastro">
         <div class="formulario" id="forms"> <!-- form aqui-->
-          <div class="titulo">
+          
+          <!-- Cadastro dados principais-->
+          <div id="cadastro1">
+
+            <div class="titulo">
+              <h1>Cadastre-se</h1>
+            </div>
+  
+            <div class="form">
+              <span>Nome</span>
+              <input class="entrada" id="nome_input" onkeyup="validarCampos()" placeholder="Seu nome aqui">
+              <div class="validacao" id="campo1"> </div>
+            </div>
+  
+            <div class="form">
+              <span>Email</span>
+              <input class="entrada"  id="email_input" onkeyup="validarCampos()" placeholder="E-mail">
+              <div class="validacao" id="campo2"></div>
+            </div>
+  
+            <div class="form">
+              <span>Senha</span>
+              <input class="entrada" id="senha_input" type="password" onkeyup="validarCampos()" placeholder="Senha">
+              <div class="validacao" id="campo3"></div>
+            </div>
+            <div class="form">
+              <span>Confirmar senha</span>
+              <input class="entrada" id="confirmacao_senha_input" type="password" onkeyup='validarCampos()' placeholder="Confirme sua senha">
+              <div class="validacao" id="campo4"></div>
+            </div>
+            <div class="form" id="estilo">
+              <span>Estilo de música favorito: </span>
+              <select id="estilo_input">
+                <option value="#">Selecione um estilo</option>
+                <option value="1">Pop</option>
+                <option value="2">Rock</option>
+                <option value="3">Hip-hop</option>
+                <option value="4">Rap</option>
+                <option value="5">Trap</option>
+                <option value="6">KPOP</option>
+                <option value="7">Samba</option>
+                <option value="8">Funk</option>
+                <option value="9">MPB</option>
+                <option value="10">Pagode</option>
+              </select>
+            </div>
+            <div class="botoes">
+              <a class="button" href="index.html">Voltar</a>
+              <a class="button" onclick="avancar1()">Avançar</a>
+            </div>
+
+
+          </div>
+
+          
+          <!-- Segundo Cadastro de preferências-->
+
+          <div id="cadastro2">
+
+            <div class="titulo">
             <h1>Cadastre-se</h1>
-          </div>
+            </div>
 
           <div class="form">
-            <span>Nome</span>
-            <input class="entrada" id="nome_input" onkeyup="validarCampos()" placeholder="Seu nome aqui">
-            <div class="validacao" id="campo1"> </div>
+            <span>Cantor ou banda favorita:</span>
+            <input class="entrada" id="nome_musicos_input" placeholder="Insira sua banda ou cantor favorito">
           </div>
 
-          <div class="form">
-            <span>Email</span>
-            <input class="entrada"  id="email_input" onkeyup="validarCampos()" placeholder="E-mail">
-            <div class="validacao" id="campo2"></div>
-          </div>
 
-          <div class="form">
-            <span>Senha</span>
-            <input class="entrada" id="senha_input" type="password" onkeyup="validarCampos()" placeholder="Senha">
-            <div class="validacao" id="campo3"></div>
-          </div>
-          <div class="form">
-            <span>Confirmar senha</span>
-            <input class="entrada" id="confirmacao_senha_input" type="password" onkeyup='validarCampos()' placeholder="Confirme sua senha">
-            <div class="validacao" id="campo4"></div>
-          </div>
           <div class="form" id="estilo">
-            <span>Estilo de música favorito: </span>
-            <select id="estilo_input">
-              <option value="#">Selecione um estilo</option>
-              <option value="1">Pop</option>
-              <option value="2">Rock</option>
-              <option value="3">Hip-hop</option>
-              <option value="4">Rap</option>
-              <option value="5">Trap</option>
-              <option value="6">KPOP</option>
-              <option value="7">Samba</option>
-              <option value="8">Funk</option>
-              <option value="9">MPB</option>
-              <option value="10">Pagode</option>
+            <span>Selecione algum instrumento que você saiba tocar: </span>
+            <select id="instrumento_input">
+              <option value="#">Selecione um instrumento</option>
+              <option value="1">Violão</option>
+              <option value="2">Violino</option>
+              <option value="3">Guitarra</option>
+              <option value="4">Harpa</option>
+              <option value="5">Piano</option>
             </select>
           </div>
-          <div class="botoes">
-            <a class="button" href="index.html">Voltar</a>
-            <a class="button" onclick="cadastrar()">Cadastrar</a>
+
+          <div class="form" id="estilo">
+            <span>Selecione sua técnica vocal</span>
+            <select id="tecnica_input">
+              <option value="#">Selecione uma técnica vocal</option>
+              <option value="1">Não conheço nenhuma técnica vocal</option>              
+              <option value="2">Pop</option>
+              <option value="3">Belting</option>
+              <option value="4">Melisma</option>
+              
+            </select>
+          </div>
+          <div class="form" id="estilo">
+            <span>Selecione seu nível em canto</span>
+            <select id="nivel_input">
+              <option value="#">Selecione seu nível de experiência em canto</option>
+              <option value="1">Não conheço nenhuma técnica vocal</option>              
+              <option value="2">Iniciante</option>
+              <option value="3">Amador</option>
+              <option value="4">Profissional</option>
+            </select>
+          </div>          
+
+
+          <div class="form" id="estilo">
+            <span>Selecione seu tipo de voz: </span>
+            <select id="voz_input">
+              <option value="#">Selecione uma classe vocal</option>
+              <option value="1">Grave</option>
+              <option value="2">Barítono</option>
+              <option value="3">Tenor</option>
+              <option value="4">Soprano</option>
+              <option value="5">Contralto</option>
+            </select>
           </div>
 
+          <a class="buttonV1" onclick="avancar2()">Cadastrar-se</a>
+
+          </div>
 
         </div>
       </div>
@@ -92,6 +164,10 @@ let pontos
 
             window.location = "index.html";
           
+  }
+
+  function esconder(){
+          cadastro2.style.display = 'none';
   }
 
   function validarCampos(){
@@ -151,173 +227,98 @@ let pontos
     
     }
 
+    function avancar1(){
+      validarCampos()
+      // aguardar();
+      
+      cadastro2.style.display = 'flex';
+      cadastro1.style.display = 'none';
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var nomeVar = nome_input.value;
+      var emailVar = email_input.value;
+      var senhaVar = senha_input.value;
+      var confirmacaoSenhaVar = confirmacao_senha_input.value;
+      var estiloVar = estilo_input.value;
+
+
+      console.log(nomeVar)
+  
+      // Verificando se há algum campo em branco
+      if (
+        nomeVar == "" ||
+        emailVar == "" ||
+        senhaVar == "" ||
+        confirmacaoSenhaVar == "" ||
+        estiloVar == "#" 
+   
+  
+      ) {
+        alert('Há campos do cadastro obrigatórios em branco!')
+
+        return false;
+      }
+  
+      if (senha_input.value != confirmacao_senha_input.value) {
+        alert('Senha incorreta em Confirmar a senha!')
+      }
+
+
+
+        
+          
+
+    }
+
+
+
+  function avancar2() { 
+      var nomeMusicoVar = nome_musicos_input.value;
+      var instrumentoVar = instrumento_input.value;
+      var tecnicaVar = tecnica_input.value;
+      var nivelVar = nivel_input.value;
+      var vozVar = voz_input.value;
+
+   if (
+        nomeMusicoVar == "" ||
+        instrumentoVar == "#" ||
+        tecnicaVar == "#" ||
+        nivelVar == '#' ||
+        vozVar == "#"      
+  
+      ) {
+        alert('Há campos do cadastro obrigatórios em branco!')
+  
+
+        return false;
+      }
+  
+
+
+        cadastrar()
+      
+  }
+
+  
+  
   function cadastrar() {
-    validarCampos()
-    // aguardar();
+    
+        console.log(estiloVar)
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var estiloVar = estilo_input.value;
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      estiloVar == "#"
-
-    ) {
-      alert('Há campos do cadastro obrigatórios em branco!')
-
-      finalizarAguardar();
-      return false;
-    }
-
-    if (senha_input.value != confirmacao_senha_input.value) {
-      alert('Senha incorreta em Confirmar a senha!')
-    }
-
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
+        
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        estiloServer: estiloVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-         
-
-          forms.innerHTML = `
-          <div class="titulo">
-            <h1>Cadastre-se</h1>
-          </div>
-
-          <div class="form">
-            <span>Cantor ou banda favorita:</span>
-            <input class="entrada" id="nome_musicos_input" placeholder="Insira sua banda ou cantor favorito">
-          </div>
-
-
-          <div class="form" id="estilo">
-            <span>Selecione algum instrumento que você saiba tocar: </span>
-            <select id="instrumento_input">
-              <option value="#">Selecione um instrumento</option>
-              <option value="1">Violão</option>
-              <option value="2">Violino</option>
-              <option value="3">Guitarra</option>
-              <option value="4">Harpa</option>
-              <option value="5">Piano</option>
-            </select>
-          </div>
-
-          <div class="form" id="estilo">
-            <span>Selecione sua técnica vocal</span>
-            <select id="tecnica_input">
-              <option value="#">Selecione uma técnica vocal</option>
-              <option value="1">Não conheço nenhuma técnica vocal</option>              
-              <option value="2">Pop</option>
-              <option value="3">Belting</option>
-              <option value="4">Melisma</option>
-              
-            </select>
-          </div>
-          <div class="form" id="estilo">
-            <span>Selecione seu nível em canto</span>
-            <select id="nivel_input">
-              <option value="#">Selecione seu nível de experiência em canto</option>
-              <option value="1">Não conheço nenhuma técnica vocal</option>              
-              <option value="2">Iniciante</option>
-              <option value="3">Amador</option>
-              <option value="4">Profissional</option>
-            </select>
-          </div>          
-
-
-          <div class="form" id="estilo">
-            <span>Selecione seu tipo de voz: </span>
-            <select id="voz_input">
-              <option value="#">Selecione uma classe vocal</option>
-              <option value="1">Grave</option>
-              <option value="2">Barítono</option>
-              <option value="3">Tenor</option>
-              <option value="4">Soprano</option>
-              <option value="5">Contralto</option>
-            </select>
-          </div>
-
-          <a class="buttonV1" onclick="avancar()">Cadastrar-se</a>
-
-        </div>
-          
-          ` 
-
-
-
-
-
-
-
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-
-    return false;
-  }
-
-  function avancar() { 
-
-
-    var nomeMusicoVar = nome_musicos_input.value;
-    var instrumentoVar = instrumento_input.value;
-    var tecnicaVar = tecnica_input.value;
-    var nivelVar = nivel_input.value;
-    var vozVar = voz_input.value;
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeMusicoVar == "" ||
-      instrumentoVar == "#" ||
-      tecnicaVar == "#" ||
-      nivelVar == '#' ||
-      vozVar == "#" 
-
-    ) {
-      alert('Há campos do cadastro obrigatórios em branco!')
-
-      finalizarAguardar();
-      return false;
-    }
-
-
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrarPref", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
+        estiloServer: estiloVar,
         nomeMusicoServer: nomeMusicoVar,
         instrumentoServer: instrumentoVar,
         tecnicaServer: tecnicaVar,
@@ -325,60 +326,60 @@ let pontos
         vozServer: vozVar
       }),
     })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          alert("Preferências realizadas com sucesso!");
-           alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-
-
-           forms.innerHTML =`
-            <div class="titulo">
-            <h1>Cadastre-se</h1>
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+      
+      if (resposta.ok) {
+        alert("Preferências realizadas com sucesso!");
+        alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+        
+        
+        forms.innerHTML =`
+        <div class="titulo">
+          <h1>Cadastre-se</h1>
           </div>
-
+          
           <div class='resultadoBox'> </div>
-           `;
-
+          `;
+          
           setTimeout(() => {
             window.location = "login.html";
           }, "1000");
-
-             }
+          
+        }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
-
-    return false;
-  }
-
-  // function listarEstilos() {
-
-  //     fetch("/estilos/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resultado) {
-  //       resposta.json().then((resultado) => {
-  //         estilos.forEach((estilo) => {
-  //           listarEstilosCadastrados.push(estilo);
-
-  //           estilo.innerHTML += `
-  //           <select id="estilo_input">
-  //              <option value="${estilo.id}">
-
-  //           </select>`   
-            
-            
-           
-  //           console.log("listarEstilosCadastrados")
-  //           console.log(listarEstilosCadastrados)
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
-</script>
+      
+      return false;
+    }
+    // function listarEstilos() {
+  
+    //     fetch("/estilos/listar", {
+    //     method: "GET",
+    //   })
+    //     .then(function (resultado) {
+    //       resposta.json().then((resultado) => {
+    //         estilos.forEach((estilo) => {
+    //           listarEstilosCadastrados.push(estilo);
+  
+    //           estilo.innerHTML += `
+    //           <select id="estilo_input">
+    //              <option value="${estilo.id}">
+  
+    //           </select>`   
+              
+              
+             
+    //           console.log("listarEstilosCadastrados")
+    //           console.log(listarEstilosCadastrados)
+    //         });
+    //       });
+    //     })
+    //     .catch(function (resposta) {
+    //       console.log(`#ERRO: ${resposta}`);
+    //     });
+    // }
+    
+  </script>

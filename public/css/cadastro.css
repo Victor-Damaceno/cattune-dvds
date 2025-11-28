@@ -78,6 +78,19 @@ body {
     justify-content: flex-start;
     margin-right: 25%;
 }
+#cadastro1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#cadastro2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 .entrada{
     width: 100%;
     padding: 3%;

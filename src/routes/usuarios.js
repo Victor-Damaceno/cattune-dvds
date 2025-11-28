@@ -7,11 +7,15 @@ var usuarioController = require("../controllers/usuarioController");
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
-router.post("/cadastrarPref", function(req,res){
-    usuarioController.cadastrarPref(req,res);
-});
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+
+// router.post("/cadastrarPref/:usuario_id", function(req,res){
+//     usuarioController.cadastrarPref(req,res);
+// });
+// router.post("/trazerUser", function (req,res){
+//     usuarioController.trazerUser(req,res);
+// });
 module.exports = router;
