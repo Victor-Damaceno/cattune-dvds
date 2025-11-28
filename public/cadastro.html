@@ -330,7 +330,16 @@ let experienciaFinal = 0;
       if(tecnicaVar != '1'){
         experienciaFinal = experienciaFinal + 10
       }
-      
+
+      if(nivelVar == '1'){
+        experienciaFinal = experienciaFinal - 5;
+      }else if(nivelVar == '2'){
+        experienciaFinal = experienciaFinal + 5;
+      }else if(nivelVar == '3'){
+        experienciaFinal = experienciaFinal + 10;
+      }else if(nivelVar == '4'){
+        experienciaFinal = experienciaFinal + 15;
+      }
 
 
       cadastrar()
@@ -369,7 +378,7 @@ let experienciaFinal = 0;
         alert("Preferências realizadas com sucesso!");
         alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
         
-        
+        console.log(experienciaFinal);
         forms.innerHTML =`
         <div class="titulo">
           <h1>Cadastre-se</h1>
@@ -380,7 +389,7 @@ let experienciaFinal = 0;
           
           setTimeout(() => {
             window.location = "login.html";
-          }, "1000");
+          }, "5000");
           
         }
       })

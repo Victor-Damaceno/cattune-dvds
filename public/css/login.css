@@ -1,12 +1,20 @@
+html {
+    width: 100%;
+    height: 100%;
+}
 body {
     margin: 0;
     padding: 0;
     font-family: Tahoma, Verdana, sans-serif;
     display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
 }
 .corpo {
     display: flex;
     width: 100%;
+    height: 100%;
     background-image: url('../assets/fundoLogin.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,6 +24,7 @@ body {
 .container {
     display: flex;
     width: 50%;
+    height: 100%;
     flex-direction: column;
     justify-self: center;
     align-self: center;
