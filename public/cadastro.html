@@ -96,11 +96,13 @@
             <span>Selecione algum instrumento que você saiba tocar: </span>
             <select id="instrumento_input">
               <option value="#">Selecione um instrumento</option>
-              <option value="1">Violão</option>
-              <option value="2">Violino</option>
-              <option value="3">Guitarra</option>
-              <option value="4">Harpa</option>
-              <option value="5">Piano</option>
+              <option value="1">Não sei tocar nenhum instrumento</option>              
+              <option value="2">Violão</option>
+              <option value="3">Violino</option>
+              <option value="4">Guitarra</option>
+              <option value="5">Baixo</option>
+              <option value="6">Piano</option>
+              <option value="6">Outros...</option>              
             </select>
           </div>
 
@@ -112,14 +114,14 @@
               <option value="2">Pop</option>
               <option value="3">Belting</option>
               <option value="4">Melisma</option>
-              
+              <option value="5">Outros...</option>              
             </select>
           </div>
           <div class="form" id="estilo">
             <span>Selecione seu nível em canto</span>
             <select id="nivel_input">
               <option value="#">Selecione seu nível de experiência em canto</option>
-              <option value="1">Não conheço nenhuma técnica vocal</option>              
+              <option value="1">Não tenho nenhuma experiência vocal</option>              
               <option value="2">Iniciante</option>
               <option value="3">Amador</option>
               <option value="4">Profissional</option>
@@ -154,10 +156,24 @@
 <script>
 // let listarEstilosCadastrados = [];
 let erro = false;
-let pontosRock = 0;
-let pontosPop = 0;
-let pontosRap = 0;
-let pontos
+let categoriaA = 0;
+let categoriaB = 0;
+let categoriaC = 0;
+let categoriaD = 0;
+let experienciaFinal = 0;
+
+  var nomeVar = '';
+  var emailVar = '';
+  var senhaVar = '';
+  var confirmacaoSenhaVar = '';
+  var estiloVar = '';
+
+  var nomeMusicoVar = '';
+  var instrumentoVar = '';
+  var tecnicaVar = '';
+  var nivelVar = '';
+  var vozVar = '';
+
 
   function voltar(){
 
@@ -235,15 +251,28 @@ let pontos
       cadastro1.style.display = 'none';
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
-      var nomeVar = nome_input.value;
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
-      var confirmacaoSenhaVar = confirmacao_senha_input.value;
-      var estiloVar = estilo_input.value;
+       nomeVar = nome_input.value;
+       emailVar = email_input.value;
+       senhaVar = senha_input.value;
+       confirmacaoSenhaVar = confirmacao_senha_input.value;
+       estiloVar = estilo_input.value;
 
 
       console.log(nomeVar)
   
+      if(estiloVar == '1' || estiloVar == '6' ){
+        categoriaA = categoriaA + 10;
+
+      } else if(estiloVar == '2' || estiloVar == '9'){
+        categoriaB = categoriaB + 10;
+
+      } else if(estiloVar == '3' || estiloVar == '4' || estiloVar == '5'){
+        categoriaC = categoriaC + 10;
+      } else if(estiloVar == '7' || estiloVar == '8' || estiloVar == '10'){
+        categoriaD = categoriaD + 10;
+      }
+      experienciaFinal = experienciaFinal + 10;
+
       // Verificando se há algum campo em branco
       if (
         nomeVar == "" ||
@@ -266,18 +295,20 @@ let pontos
 
 
         
-          
+     
 
     }
 
 
 
   function avancar2() { 
-      var nomeMusicoVar = nome_musicos_input.value;
-      var instrumentoVar = instrumento_input.value;
-      var tecnicaVar = tecnica_input.value;
-      var nivelVar = nivel_input.value;
-      var vozVar = voz_input.value;
+    
+    console.log(nomeVar)
+       nomeMusicoVar = nome_musicos_input.value;
+       instrumentoVar = instrumento_input.value;
+       tecnicaVar = tecnica_input.value;
+       nivelVar = nivel_input.value;
+       vozVar = voz_input.value;
 
    if (
         nomeMusicoVar == "" ||
@@ -293,18 +324,23 @@ let pontos
         return false;
       }
   
-
-
-        cadastrar()
+      if(instrumentoVar != '1'){
+        experienciaFinal = experienciaFinal + 5;
+      }
+      if(tecnicaVar != '1'){
+        experienciaFinal = experienciaFinal + 10
+      }
       
+
+
+      cadastrar()
   }
 
   
   
   function cadastrar() {
     
-        console.log(estiloVar)
-
+    console.log(nomeMusicoVar);
         
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {

@@ -17,7 +17,7 @@ function cadastrar(nome, email, senha, estilo, nomeMusico, instrumento, tecnica,
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO usuario (nome, email, senha, estilo_id) VALUES ('${nome}', '${email}', '${senha}', '${estilo}', '${nomeMusico}', '${instrumento}', '${tecnica}', '${nivel}', '${voz}');
+        INSERT INTO usuario (nome, email, senha, estilo_id, nomeMusico, instrumento, tecnica, nivel, voz) VALUES ('${nome}', '${email}', '${senha}', '${estilo}', '${nomeMusico}', '${instrumento}', '${tecnica}', '${nivel}', '${voz}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
