@@ -166,6 +166,10 @@ body {
   border-radius: 15px;
   color: #FFFF;
 }
+.resultadoBox img{
+    width: 250px;
+    height: 250px;
+}
 
 .button:hover{
     cursor: pointer;

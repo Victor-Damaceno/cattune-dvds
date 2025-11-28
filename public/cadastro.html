@@ -143,7 +143,7 @@
 
           <a class="buttonV1" onclick="avancar2()">Cadastrar-se</a>
 
-          </div>
+
 
         </div>
       </div>
@@ -161,6 +161,7 @@ let categoriaB = 0;
 let categoriaC = 0;
 let categoriaD = 0;
 let experienciaFinal = 0;
+let nivelFinal = 0;
 
   var nomeVar = '';
   var emailVar = '';
@@ -379,13 +380,156 @@ let experienciaFinal = 0;
         alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
         
         console.log(experienciaFinal);
-        forms.innerHTML =`
-        <div class="titulo">
-          <h1>Cadastre-se</h1>
-          </div>
+        if(experienciaFinal < 10){
+          nivelFinal = 'Iniciante';
+        }else if(experienciaFinal < 25){
+          nivelFinal = 'Amador';
+        }else if(experienciaFinal < 40){
+          nivelFinal = 'Experiente';
+        }
+
+        if(categoriaA == 10){
+
+          if(nivelFinal == 'Iniciante'){
+            
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;       
+
+          }else if(nivelFinal == 'Amador'){
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;      
+
+          }else if(nivelFinal == 'Experiente') {
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;       
+
+          }
+
+
+        } else if(categoriaB == 10){
+
+          if(nivelFinal == 'Iniciante'){
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;       
+
+          }else if(nivelFinal == 'Amador'){
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;               
+
+          }else if(nivelFinal == 'Experiente') {
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;     
+
+          }
           
-          <div class='resultadoBox'> </div>
-          `;
+
+        } else if(categoriaC == 10){
+          
+            if(nivelFinal == 'Iniciante'){
+              
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/imgs/')"> </div>
+              `;    
+
+            }else if(nivelFinal == 'Amador'){
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;                     
+
+            }else if(nivelFinal == 'Experiente') {
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;    
+
+            }
+
+        } else if(categoriaD == 10){
+
+          if(nivelFinal == 'Iniciante'){
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;      
+              
+              
+          }else if(nivelFinal == 'Amador'){
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;   
+
+          }else if(nivelFinal == 'Experiente') {
+
+            forms.innerHTML =`
+            <div class="titulo">
+              <h1>Sugestão!</h1>
+              </div>
+              
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              `;     
+
+          }
+          
+        }
+
+
           
           setTimeout(() => {
             window.location = "login.html";
