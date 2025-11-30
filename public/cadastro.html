@@ -141,7 +141,11 @@
             </select>
           </div>
 
-          <a class="buttonV1" onclick="avancar2()">Cadastrar-se</a>
+          <div class="botoes">
+            <a class="button" href="index.html">Voltar</a>          
+            <a class="button" onclick="avancar2()">Cadastrar</a>
+
+          </div>
 
 
 
@@ -229,7 +233,7 @@ let nivelFinal = 0;
           campo2.innerHTML ='Email inserido inválido';
         }
         else{
-          campo2.innerHTML ='';
+          campo2.innerHTML = '';
         }
       }
 
@@ -248,8 +252,7 @@ let nivelFinal = 0;
       validarCampos()
       // aguardar();
       
-      cadastro2.style.display = 'flex';
-      cadastro1.style.display = 'none';
+
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
        nomeVar = nome_input.value;
@@ -285,13 +288,18 @@ let nivelFinal = 0;
   
       ) {
         alert('Há campos do cadastro obrigatórios em branco!')
-
+              cadastro1.style.display = 'flex';
         return false;
       }
   
-      if (senha_input.value != confirmacao_senha_input.value) {
+      else if (senha_input.value != confirmacao_senha_input.value) {
         alert('Senha incorreta em Confirmar a senha!')
+              cadastro1.style.display = 'flex';
+      } else{
+      cadastro1.style.display = 'none'
+      cadastro2.style.display = 'flex';
       }
+
 
 
 
@@ -393,31 +401,31 @@ let nivelFinal = 0;
           if(nivelFinal == 'Iniciante'){
             
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png') background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;       
 
           }else if(nivelFinal == 'Amador'){
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/engenheiros_hawai.png') background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;      
 
           }else if(nivelFinal == 'Experiente') {
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/engenheiros_hawai.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;       
 
           }
@@ -428,31 +436,31 @@ let nivelFinal = 0;
           if(nivelFinal == 'Iniciante'){
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/engenheiros_hawai.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;       
 
           }else if(nivelFinal == 'Amador'){
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/engenheiros_hawai.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;               
 
           }else if(nivelFinal == 'Experiente') {
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/engenheiros_hawai.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;     
 
           }
@@ -463,31 +471,31 @@ let nivelFinal = 0;
             if(nivelFinal == 'Iniciante'){
               
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/imgs/')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/engenheiros_hawai.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;    
 
             }else if(nivelFinal == 'Amador'){
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/imagem_convertida.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;                     
 
             }else if(nivelFinal == 'Experiente') {
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/imagem_convertida.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;    
 
             }
@@ -497,32 +505,32 @@ let nivelFinal = 0;
           if(nivelFinal == 'Iniciante'){
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/imagem_convertida.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;      
               
               
           }else if(nivelFinal == 'Amador'){
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;   
 
           }else if(nivelFinal == 'Experiente') {
 
             forms.innerHTML =`
-            <div class="titulo">
+            <div class="titulo2">
               <h1>Sugestão!</h1>
               </div>
               
-              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png')"> </div>
+              <div class='resultadoBox' style="background-image: url('assets/fundoLogin.png'); background-repeat: no-repeat; width: 70%; height: 350px; background-size: cover;"> </div>
               `;     
 
           }
@@ -531,9 +539,7 @@ let nivelFinal = 0;
 
 
           
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "5000");
+
           
         }
       })

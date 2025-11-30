@@ -78,6 +78,10 @@ body {
     justify-content: flex-start;
     margin-right: 25%;
 }
+.titulo2 {
+    display: flex;
+    align-self: center;
+}
 #cadastro1 {
     display: flex;
     flex-direction: column;
@@ -127,7 +131,7 @@ body {
     display: flex;
     justify-content: center;
     align-self: center;
-    padding: 4% 6%;
+    padding: 4% 4%;
     margin-top: 5%;
     margin-left: 45%;
     border-radius: 15px;
@@ -141,7 +145,9 @@ body {
     display: flex;
     justify-content: center;
     align-self: center;
-    padding: 2% 2%;
+    width: 60%;
+
+    padding: 2% 4%;
     margin-top: 5%;
     margin-left: 45%;
     border-radius: 15px;
@@ -169,6 +175,10 @@ body {
 .resultadoBox img{
     width: 250px;
     height: 250px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
 }
 
 .button:hover{
