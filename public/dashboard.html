@@ -508,18 +508,14 @@
                             Nivel.innerHTML = 'Profissional';
                         }
 
-                        if(totalNum < 3){
+                        if(totalNum <= 3){
                             Nivel.innerHTML = 'Iniciante';
                         }
-                       else if(totalNum < 4){
+                       else if(totalNum <= 6){
                             if(Nivel.innerHTML == 'Iniciante'){
                                 Nivel.innerHTML = 'Amador';
-                            }else if(Nivel.innerHTML == 'Amador'){
-                                Nivel.innerHTML = 'Experiente';
-                            }else if(Nivel.innerHTML == 'Experiente'){
-                                Nivel.innerHTML = 'Profissional';
                             }
-                        } else if(totalNum < 6){
+                        } else if(totalNum <= 7){
                             if(Nivel.innerHTML == 'Iniciante'){
                                 Nivel.innerHTML = 'Amador';
                             }else if(Nivel.innerHTML == 'Amador'){
@@ -535,7 +531,7 @@
                             }else if(Nivel.innerHTML == 'Experiente'){
                                 Nivel.innerHTML = 'Profissional';
                             }
-                        } else if(totalNum > 10){
+                        } else if(totalNum >= 10){
                             if(Nivel.innerHTML == 'Iniciante'){
                                 Nivel.innerHTML = 'Profissional';
                             }else if(Nivel.innerHTML == 'Amador'){
