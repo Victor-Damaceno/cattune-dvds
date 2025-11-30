@@ -54,8 +54,8 @@
                      <h2 id="total_pubs">0</h2>
                 </div>
                 <div class="kpiBox">
-                    <h1>Classe vocal: </h1>
-                    <h2 id="voz">0</h2>
+                    <h1>Experiência em %: </h1>
+                    <h2 id="Porcentagem"></h2>
                 </div>
             </div>
             <div class="TopDashboard">
@@ -508,13 +508,18 @@
                             Nivel.innerHTML = 'Profissional';
                         }
 
+
+                        percent = totalNum;
                         if(totalNum <= 3){
                             Nivel.innerHTML = 'Iniciante';
+                            percent = (totalNum/4)*100;        
+                                                
                         }
                        else if(totalNum <= 6){
                             if(Nivel.innerHTML == 'Iniciante'){
-                                Nivel.innerHTML = 'Amador';
+                                Nivel.innerHTML = 'Amador';             
                             }
+                            percent = (totalNum/7)*100;                            
                         } else if(totalNum <= 7){
                             if(Nivel.innerHTML == 'Iniciante'){
                                 Nivel.innerHTML = 'Amador';
@@ -523,6 +528,7 @@
                             }else if(Nivel.innerHTML == 'Experiente'){
                                 Nivel.innerHTML = 'Profissional';
                             }
+                            percent = (totalNum/8)*100;                              
                         } else if(totalNum < 10){
                             if(Nivel.innerHTML == 'Iniciante'){
                                 Nivel.innerHTML = 'Amador';
@@ -531,6 +537,7 @@
                             }else if(Nivel.innerHTML == 'Experiente'){
                                 Nivel.innerHTML = 'Profissional';
                             }
+                            percent = (totalNum/10)*100;                              
                         } else if(totalNum >= 10){
                             if(Nivel.innerHTML == 'Iniciante'){
                                 Nivel.innerHTML = 'Profissional';
@@ -539,8 +546,10 @@
                             }else if(Nivel.innerHTML == 'Experiente'){
                                 Nivel.innerHTML = 'Profissinal';
                             }
+                            percent = (totalNum/10)*100;                              
                         } 
-
+                            console.log(percent)
+                            Porcentagem.innerHTML = `${percent.toFixed(2)}%`;
                     }, "5");
 
                     
