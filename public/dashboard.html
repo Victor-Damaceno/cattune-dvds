@@ -65,7 +65,7 @@
                 </div>
                 <div class="kpiBox">
                     <h1>Nível de experiência</h1>
-                    <h2 id="nivel">0</h2>
+                    <h2 id="Nivel">0</h2>
                 </div>
                 <div class="kpiBox">
                     <h1>Classe vocal: </h1>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="corpoDashboard">
-                <h1>Estilo de músicas publicados:</h1>
+                <h1>Estilo de músicas publicadas até agora:</h1>
                 <div class="grafico">
                     <canvas id="linha"></canvas>
                 </div>
@@ -258,7 +258,7 @@
                                 estilo_musica = 'Rock';
 
                                           musicas.innerHTML += `
-                          <div class="musicaBox" style="background-image: url('assets/estilo_rock.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                          <div class="musicaBox" style="background-image: url('assets/estilo_rock.png'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
                     <div class="TituloMusica">
                         <h1 id="titulo_musica">${nome_musica}</h1>
                           <h2>${estilo_musica}</h2>
@@ -273,31 +273,9 @@
                             }
                             if (estilo_musica == '3') {
                                 estilo_musica = 'Hip-hop';
-                            }
-                            if (estilo_musica == '4') {
-                                estilo_musica = 'Rap'
-                            }
-                            if (estilo_musica == '5') {
-                                estilo_musica = 'Trap';
-                            }
-                            if (estilo_musica == '6') {
-                                estilo_musica = 'KPOP';
-                            }
-                            if (estilo_musica == '7') {
-                                estilo_musica = 'Samba';
-                            }
-                            if (estilo_musica == '8') {
-                                estilo_musica = 'Funk';
-                            }
-                            if (estilo_musica == '9') {
-                                estilo_musica = 'MPB';
-                            }
-                            if (estilo_musica == '10') {
-                                estilo_musica = 'Pagode';
-                            }
 
-                            musicas.innerHTML += `
-                          <div class="musicaBox">
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_rap.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
                     <div class="TituloMusica">
                         <h1 id="titulo_musica">${nome_musica}</h1>
                           <h2>${estilo_musica}</h2>
@@ -307,9 +285,129 @@
                         </div>
                         <div class='buttonMusica'>
                             <a class='link' href='${link_musica}'> Ouvir música</a> 
-                            </div>
-                                                       
-                    `
+                            </div>                            
+                    `                                                                
+                                
+                            }
+                            if (estilo_musica == '4') {
+                                estilo_musica = 'Rap'
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_rap.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                   
+                            }
+                            if (estilo_musica == '5') {
+                                estilo_musica = 'Trap';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_rap.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                   
+                            }
+                            if (estilo_musica == '6') {
+                                estilo_musica = 'KPOP';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_pop.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                
+                            }
+                            if (estilo_musica == '7') {
+                                estilo_musica = 'Samba';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_mpb.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                   
+                            }
+                            if (estilo_musica == '8') {
+                                estilo_musica = 'Funk';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_rap.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                                  
+                            }
+                            if (estilo_musica == '9') {
+                                estilo_musica = 'MPB';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_mpb.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                                 
+                            }
+                            if (estilo_musica == '10') {
+                                estilo_musica = 'Pagode';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_mpb.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                                 
+                            }
 
 
                         }
@@ -335,7 +433,7 @@
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                         total_pubs.innerHTML = resposta[0].total;
-
+                        totalNum = resposta[0].total;
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
@@ -357,6 +455,18 @@
                         if(resposta[0].Classe == 1){
                             classe_voz.innerHTML = 'Grave';
                         }
+                        if(resposta[0].Classe == 2){
+                            classe_voz.innerHTML = 'Barítono';
+                        }
+                        if(resposta[0].Classe == 3){
+                            classe_voz.innerHTML = 'Tenor';
+                        }
+                        if(resposta[0].Classe == 4){
+                            classe_voz.innerHTML = 'Soprano';
+                        }
+                        if(resposta[0].Classe == 5){
+                            classe_voz.innerHTML = 'Grave';
+                        }                                                                                                 
                     });
                 } 
             })
@@ -365,6 +475,85 @@
             });
 
             
+             fetch(`/usuarios/nivel/${usuario_id}`)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        Nivel.innerHTML = resposta[0].nivel;
+
+                    setTimeout(() => {
+
+                        console.log('teste');
+
+
+                        if(resposta[0].nivel == 1){
+                            if(totalNum > 3){
+                                Nivel.innerHTML = 'Amador';
+    
+                            } else{
+                                Nivel.innerHTML = 'Iniciante';
+                            }
+                        }
+                        if(resposta[0].nivel == 2){
+                            if(totalNum > 10){
+                                Nivel.innerHTML = 'Experiente'
+                            }
+                            Nivel.innerHTML = 'Amador';
+                        }
+                        if(resposta[0].nivel == 3){
+                            Nivel.innerHTML = 'Experiente';
+                        }
+                        if(resposta[0].nivel == 4){
+                            Nivel.innerHTML = 'Profissional';
+                        }
+
+                        if(totalNum < 3){
+                            Nivel.innerHTML = 'Iniciante';
+                        }
+                       else if(totalNum < 4){
+                            if(Nivel.innerHTML == 'Iniciante'){
+                                Nivel.innerHTML = 'Amador';
+                            }else if(Nivel.innerHTML == 'Amador'){
+                                Nivel.innerHTML = 'Experiente';
+                            }else if(Nivel.innerHTML == 'Experiente'){
+                                Nivel.innerHTML = 'Profissional';
+                            }
+                        } else if(totalNum < 6){
+                            if(Nivel.innerHTML == 'Iniciante'){
+                                Nivel.innerHTML = 'Amador';
+                            }else if(Nivel.innerHTML == 'Amador'){
+                                Nivel.innerHTML = 'Experiente';
+                            }else if(Nivel.innerHTML == 'Experiente'){
+                                Nivel.innerHTML = 'Profissional';
+                            }
+                        } else if(totalNum < 10){
+                            if(Nivel.innerHTML == 'Iniciante'){
+                                Nivel.innerHTML = 'Amador';
+                            }else if(Nivel.innerHTML == 'Amador'){
+                                Nivel.innerHTML = 'Experiente';
+                            }else if(Nivel.innerHTML == 'Experiente'){
+                                Nivel.innerHTML = 'Profissional';
+                            }
+                        } else if(totalNum > 10){
+                            if(Nivel.innerHTML == 'Iniciante'){
+                                Nivel.innerHTML = 'Profissional';
+                            }else if(Nivel.innerHTML == 'Amador'){
+                                Nivel.innerHTML = 'Profissional';
+                            }else if(Nivel.innerHTML == 'Experiente'){
+                                Nivel.innerHTML = 'Profissinal';
+                            }
+                        } 
+
+                    }, "5");
+
+                    
+                    });
+                } 
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });            
     }
 
 

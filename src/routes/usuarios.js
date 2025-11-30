@@ -16,6 +16,9 @@ router.get("/classeVocal/:usuario_id", function (req, res) {
     usuarioController.classeVocal(req, res);
 });
 
+router.get("/nivel/:usuario_id", function (req,res) {
+    usuarioController.nivel(req,res);
+});
 // router.post("/cadastrarPref/:usuario_id", function(req,res){
 //     usuarioController.cadastrarPref(req,res);
 // });

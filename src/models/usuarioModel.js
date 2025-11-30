@@ -37,11 +37,20 @@ function classeVocal(id){
     return database.executar(instrucaoSql);
 }
 
+function nivel(id){
+    var instrucaoSql = `SELECT voz AS nivel FROM usuario WHERE id = ${id}`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 
 module.exports = {
     autenticar,
     cadastrar,
-    classeVocal
+    classeVocal,
+    nivel
     // trazerUser,
 
 };

@@ -142,7 +142,7 @@
           </div>
 
           <div class="botoes">
-            <a class="button" href="index.html">Voltar</a>          
+            <a class="button" onclick="voltar()">Voltar</a>          
             <a class="button" onclick="avancar2()">Cadastrar</a>
 
           </div>
@@ -183,8 +183,8 @@ let nivelFinal = 0;
   function voltar(){
 
 
-            window.location = "index.html";
-          
+    cadastro2.style.display = 'none';
+    cadastro1.style.display = 'flex';
   }
 
   function esconder(){
@@ -602,7 +602,7 @@ let nivelFinal = 0;
              setTimeout(() => {
               console.log('AQUI2');
               window.location = "login.html";
-              }, "8000");           
+              }, "6000");           
           
         }
       })
