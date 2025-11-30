@@ -42,6 +42,16 @@ function contarPublicacoes(id){
     return database.executar(instrucaoSql);
 }
 
+
+// Próximos passos: 
+
+// function deletarMusica(id){
+//     var instrucaoSql = `DELETE from musica WHERE usuario_id = ${id}`
+    
+
+//     return database.executar(instrucaoSql);
+// }
+
 // function listarRepertorio(){
 //     var instrucaoSql = `SELECT COUNT(id) AS quantidade FROM musica`
 // }
@@ -51,5 +61,6 @@ module.exports = {
     listarMaior,
     mostrarMusicas,
     contarPublicacoes
+    //deletarMusica
     // listarRepertorio
 };

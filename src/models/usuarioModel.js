@@ -30,12 +30,18 @@ function cadastrar(nome, email, senha, estilo, nomeMusico, instrumento, tecnica,
 //         return database.executar(instrucaoSql);
 //     }
 
+function classeVocal(id){
+    var instrucaoSql = `SELECT voz AS Classe FROM usuario WHERE id = ${id}`
 
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    classeVocal
     // trazerUser,
 
 };

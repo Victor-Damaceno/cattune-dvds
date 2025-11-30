@@ -96,23 +96,24 @@ function cadastrar(req, res) {
     }
 }
 
-// function trazerUser(req, res){
-//     musicaModel.trazerUser().then((resultado) => {
-//         res.status(200).json(resultado);
 
-//     }).catch((erro) => {
-//         console.log("Erro no controller:", erro);
-//         res.status(500).json(erro);
-//     }
-//     )
-// }
+function classeVocal(req, res){
+    console.log(req.params)
+    var id = req.params.usuario_id;
 
+    usuarioModel.classeVocal(id).then((resultado) => {
+        res.status(200).json(resultado);
+    }).catch((erro) => {
+        console.log("ERRO no controler",erro);
+        res.status(500).json(erro.sqlMessage);
+    })
 
-
+}
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    classeVocal
     // cadastrarPref
     // trazerUser,
 }

@@ -255,6 +255,9 @@ body {
   color: #FFFF;
   text-decoration: none;
 }
+.grafico {
+  margin-bottom: 5%;
+}
 
 .buttonMusica {
   display: flex;

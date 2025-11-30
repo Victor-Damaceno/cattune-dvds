@@ -180,7 +180,11 @@ body {
     background-position: center;
     
 }
-
+.link a{
+    color: #FFFF;
+    text-decoration: none;
+    font-style: none;
+}
 .button:hover{
     cursor: pointer;
 }

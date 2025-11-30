@@ -12,6 +12,10 @@ router.post("/autenticar", function (req, res) {
 });
 
 
+router.get("/classeVocal/:usuario_id", function (req, res) {
+    usuarioController.classeVocal(req, res);
+});
+
 // router.post("/cadastrarPref/:usuario_id", function(req,res){
 //     usuarioController.cadastrarPref(req,res);
 // });

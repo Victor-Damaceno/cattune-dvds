@@ -44,21 +44,32 @@
         </div>
         <div class="dashboard">
             <div class="TopDashboard">
-                <div class="kpiBox">
-                    <h1>Estilos mais publicados neste mês:</h1>
-                    <h2 id="m_publicacoes"> Sem dados</h2>
-                </div>
+
                 <div class="kpiBox">
                     <h1>Estilo de música favorita:</h1>
                     <h2 id="e_usuario"></h2>
                 </div>
                 <div class="kpiBox">
                     <h1>Total de músicas gravadas até agora</h1>
-                    <h2 id="total_pubs">0</h2>
+                     <h2 id="total_pubs">0</h2>
                 </div>
                 <div class="kpiBox">
                     <h1>Classe vocal: </h1>
                     <h2 id="voz">0</h2>
+                </div>
+            </div>
+            <div class="TopDashboard">
+                <div class="kpiBox">
+                    <h1>Estilos mais publicados até agora:</h1>
+                    <h2 id="m_publicacoes"> Sem dados</h2>
+                </div>
+                <div class="kpiBox">
+                    <h1>Nível de experiência</h1>
+                    <h2 id="nivel">0</h2>
+                </div>
+                <div class="kpiBox">
+                    <h1>Classe vocal: </h1>
+                    <h2 id="classe_voz">0</h2>
                 </div>
             </div>
             <div class="corpoDashboard">
@@ -66,11 +77,13 @@
                 <div class="grafico">
                     <canvas id="linha"></canvas>
                 </div>
-                <h1>Suas músicas publicadas até o momento:</h1>
+
+                <!-- Próximos passos-->
+                <!-- <h1>Suas músicas publicadas até o momento:</h1>
                 <h2>(Nos últimos 5 meses)</h2>
                 <div class="grafico">
                     <canvas id="barra"></canvas>
-                </div>
+                </div> -->
 
 
             </div>
@@ -157,6 +170,7 @@
 
 
 
+        
 
         fetch(`/musicas/listarMaior/${usuario_id}`)
             .then(function (response) {
@@ -225,9 +239,37 @@
 
                             if (estilo_musica == '1') {
                                 estilo_musica = 'Pop';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_pop.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `
                             }
                             if (estilo_musica == '2') {
                                 estilo_musica = 'Rock';
+
+                                          musicas.innerHTML += `
+                          <div class="musicaBox" style="background-image: url('assets/estilo_rock.jpg'); background-repeat: no-repeat; width: 100%; height: 350px; background-size: cover;">
+                    <div class="TituloMusica">
+                        <h1 id="titulo_musica">${nome_musica}</h1>
+                          <h2>${estilo_musica}</h2>
+                    </div>
+                    <div class="corpoMusica" onclick="levarAoLink()">
+                        <p>${descricao_musica}</p>
+                        </div>
+                        <div class='buttonMusica'>
+                            <a class='link' href='${link_musica}'> Ouvir música</a> 
+                            </div>                            
+                    `                                
                             }
                             if (estilo_musica == '3') {
                                 estilo_musica = 'Hip-hop';
@@ -266,11 +308,13 @@
                         <div class='buttonMusica'>
                             <a class='link' href='${link_musica}'> Ouvir música</a> 
                             </div>
-                        <a onclick='deletarMusica()' href='' class='deletar'>Deletar música</a>                                                          
+                                                       
                     `
 
 
                         }
+
+
 
 
 
@@ -302,14 +346,32 @@
             });
 
 
+
+             fetch(`/usuarios/classeVocal/${usuario_id}`)
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        classe_voz.innerHTML = resposta[0].Classe;
+
+                        if(resposta[0].Classe == 1){
+                            classe_voz.innerHTML = 'Grave';
+                        }
+                    });
+                } 
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
             
     }
 
 
 
-    function deletar() {
+    // function deletar() {
 
-    }
+    // }
 
 
 
@@ -358,6 +420,7 @@
 
 
         let labels = []
+        Chart.defaults.color = '#FFFF';
         // Capturando o elemento canvas pelo id 
         var ctx = document.getElementById('linha').getContext('2d');
         // Criando o gráfico de linha usando o Chart.js
@@ -370,12 +433,13 @@
                     data: quantidades, // Dados das quantidades
                     maxBarThickness: 60,
                     backgroundColor: [
-                        '#f28f6b5d', // Cor de fundo das linhas
+                        '#f28f6b5d', 
+
                     ],
                     borderColor: [
-                        'rgb(242, 142, 107)', // Cor da borda das linhas
+                        'rgb(242, 142, 107)', 
                     ],
-                    borderWidth: 1 // Largura da borda das linhas
+                    borderWidth: 1 
                 }]
             },
             options: {
