@@ -32,7 +32,7 @@ usuario_id INT,
 FOREIGN KEY (usuario_id) REFERENCES usuario(id),
 data_musica DATE
 );
-
+-- data_musica ainda não é um campo utilizado
 
 CREATE TABLE repertorio (
 nome VARCHAR (50),
